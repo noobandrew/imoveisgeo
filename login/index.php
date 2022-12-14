@@ -1,5 +1,7 @@
 <?php
 include ('conexao.php');
+// conecta com o servidor
+
 
 if(isset($_POST['email']) || isset($_POST['senha'])) {
 
@@ -29,7 +31,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
                 $_SESSION['nome'] = $usuario['nome'];
 
                 header("Location: painel.php");
-                
+
 
             } else {
                 echo "Falha ao logar! E-mail ou senha incorretos.";
