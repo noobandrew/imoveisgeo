@@ -56,7 +56,7 @@
     <!--page top =============-->
     <main class="main" id="top">
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-5 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
-    <div class="container"><a class="navbar-brand" href="https://www.topographia.com.br"><img src="assets/img/logo.svg" height="34" alt="logo" /></a>
+    <div class="container"><a class="navbar-brand" href="https://www.topographia.com.br/"><img src="assets/img/logo.svg" height="34" alt="logo" /></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
     <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
@@ -90,6 +90,8 @@
     <div class="mb-7 text-center">
     <h5 class="text-secondary">Visualize os limites da sua propriedade em um mapa</h5>
     <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">TOPOGRAPHIA</h3>
+    <p> <?php echo json_encode($_POST['login']); ?> </p>
+
     </div>
     </div>
 
@@ -210,7 +212,7 @@ var hash = CryptoJS.MD5(hash);
 
 
 
-// ====== Variável que atribui o token do usuario (já encriptado) à variável cliente para buscar o .geojson correto. =======>
+// ====== Variável que atribui o token do usuario (já c/ hash) à variável cliente para buscar o .geojson correto. =======>
 var cliente = hash;
 // =============== POST hash to server.php and return the name of the client (to be done)
 
