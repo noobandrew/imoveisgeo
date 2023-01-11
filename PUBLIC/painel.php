@@ -26,7 +26,7 @@
 
 
 
-    <!--CYPTOJS link-->
+    <!--CRYPTOJS link-->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
@@ -100,7 +100,7 @@
 
 
 
-    <div id="map" style="height:500px; width: 470px; position:relative; justify-content:center; outline:none; margin-left:auto; margin-right:auto; display:block"
+    <div id="map" style="height:500px; width: 400px; position:relative; justify-content:center; outline:none; margin-left:auto; margin-right:auto; display:block"
     class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom"
     tabindex="0">
     <div class="leaflet-pane leaflet-map-pane"
@@ -147,7 +147,7 @@
 
     <!-- rodape begin ============================-->
     <section class="pb-0 pb-lg-4">
-
+    <!--============================================ HTML DO LEAFLET ============================================-->
     <div class="container">
     <div class="row">
     <div class="col-lg-3 col-md-7 col-12 mb-4 mb-md-6 mb-lg-0 order-0"> <img class="mb-4" src="assets/img/logo2.svg" width="150" />
@@ -173,7 +173,7 @@
     </div>
     </div><!-- end of .container -->
     </section>
-    <!-- rodape close ============================-->
+    <!-- rodape close ====================================================================================================================-->
 
 
     <div class="py-5 text-center">
@@ -195,29 +195,13 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
     <script src="vendors/fontawesome/all.min.js"></script>
     <script src="assets/js/theme.js"></script>
+
     <!--=============== MAIN LEAFLET SCRIPT ===============-->
     <script>
+    var hash = <?php echo json_encode($_POST['login']); ?>; //ECHO do que o usuário digitou na pagina de login
+    var hash = CryptoJS.MD5(hash); // encripta antes de pesquisar na database 
+    var cliente = hash; // atribui a uma variavel mais bonitinha
 
-
-var hash = <?php echo json_encode($_POST['login']); ?>; //É AQUI QUE TENHO QUE COLOCAR O ECHO DA PHP SESSION //
-var hash = CryptoJS.MD5(hash);  
-
-
-
-
-//linhas para testar se deu certo (INATIVO)
-// window.onload = function cript(){
-//  alert(hash);
-// }
-
-
-
-// ====== Variável que atribui o token do usuario (já c/ hash) à variável cliente para buscar o .geojson correto. =======>
-var cliente = hash;
-// =============== POST hash to server.php and return the name of the client (to be done)
-
-
-  
 // ==============================================================================================================================>
 // MAIN LEAFLET JAVASCRIPT CODE, GEOJSON AND ESRI TILELAYERS ====================================================================>
 // ==============================================================================================================================>
@@ -225,18 +209,44 @@ var cliente = hash;
 // Em sequência, defino as coordenadas iniciais, o zoom e também qual será o arquivo .geojson a ser "puxado".
 
 var url = cliente + '.geojson';
-var map = L.map('map').setView([-29.60114361, -54.74733389], 14);  -53.78912306, -29.75566278
+
+
+
+// linhas para testar se deu certo (INATIVAR QUANDO ESTIVER RODANDO PRA VALER)==========>
+window.onload = function teste(){
+  alert(feature.geometry.coordinates);
+  }
+// =====================================================================================>
+
+
+// ====== Variável que atribui o token do usuario (já c/ hash) à variável cliente para buscar o .geojson correto. =======>
+
+// =====> AQUI DEVO: <======
+// 1 - ATRIBUIR LngLat do Polígono do GEOJSON em alguma variável;  [DONE]
+// 2 - Inverter a ordem dos arrays nessa variável; [NOT DONE]
+// 3 - Atribuir essa variável ao setView; [DONE]
+
+
+// ============================================ ONDE O MAPA COMEÇA E O ZOOM MÁXIMO ============================================
+var map = L.map('map').setView([-29.60114361, -54.74733389], 14); 
 var mapLink = '<a href="http://www.esri.com/">Esri</a>';
 var wholink = 'i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community';
+// ============================================================================================================================
 
 
+
+// Fonte dos tiles e definição do zoom máximo ===========================================> 
 L.tileLayer(
 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 attribution: '&copy; '+mapLink+', '+wholink,
 maxZoom: 17,
 }).addTo(map);
+//========================================================================================>
 
 
+
+
+// ============================================ DELETAR ============================================
 var geojsonMarkerOptions = {
 'radius':6,
 'opacity':.5,
@@ -244,6 +254,7 @@ var geojsonMarkerOptions = {
 'fillColor': "blue",
 'fillOpacity': 0.8
 };
+// ==================================================================================================
 
 
 // ==============================================================================================================================>
@@ -259,10 +270,37 @@ var popupContent = "<strong>Nome da área</strong>: " + feature.properties.nome_
 '<a href="https://sigef.incra.gov.br/geo/parcela/detalhe/' + feature.properties.parcela_co + '"' + ">" + "Clique aqui" +  "</a>" + "<br>" +
 "<strong>Detentor(es)</strong>: " + feature.properties.BC5PROPRIE
 // "<strong>TESTE HASH MD5</strong>: " + cliente + "<br>" 
-;
-;
-// ===============================================================================================================================>
+// ====================================================================================================================================
 
+
+var coordenadas = [feature.geometry.coordinates];
+Array.prototype.reverse.call(coordenadas);
+
+
+
+
+//var coordenadas = [feature.geometry.coordinates];
+//var coordenadas = coordenadas.reverse();
+
+
+
+//=====> DAR UM JEITO DE INVERTER O ARRAY "FEATURE.GEOMETRY.COORDINATES" AQUI, ANTES DE ATRIBUIR NA FUNÇÃO FITBOUNDS <======== 
+
+
+// bloco de teste da manipulação de array
+window.onload = function teste(){
+   alert(coordenadas);
+  }
+// ======================================
+
+
+// função 
+  map.fitBounds(coordenadas);
+// ======================================
+
+
+;
+;
 
 
 // Configuração do Popup
@@ -272,8 +310,7 @@ popupContent += feature.properties.popupContent;
 layer.bindPopup(popupContent);
 };
 
-
-//var bbTeam = L.geoJSON(null, {onEachFeature: forEachFeature, style: style});
+// NÃO SEI EXATAMENTE O QUE EU QUIS FAZER COM ESSE BLOCO. VOU TENTAR DELETÁ-LO
 var bbTeam = L.geoJSON(null, {
 onEachFeature: forEachFeature, 
 pointToLayer: function (feature, latlng) {
@@ -282,15 +319,25 @@ return L.circleMarker(latlng, geojsonMarkerOptions);
 });
 
 
-// Get GeoJSON data and create features.
+// Get GeoJSON data and create features, IMPORTANTE DEMAIS =======================================================
 $.getJSON(url, function(data) {
 bbTeam.addData(data);
 }); 
 bbTeam.addTo(map);
+// ================================================================================================================
+//  $$$$$$$$\ $$\   $$\ $$$$$$$\  
+//  $$  _____|$$$\  $$ |$$  __$$\ 
+//  $$ |      $$$$\ $$ |$$ |  $$ |
+//  $$$$$\    $$ $$\$$ |$$ |  $$ |
+//  $$  __|   $$ \$$$$ |$$ |  $$ |
+//  $$ |      $$ |\$$$ |$$ |  $$ |
+//  $$$$$$$$\ $$ | \$$ |$$$$$$$  |
+//  \________|\__|  \__|\_______/   
+// ================================================================================================================    
 
-//============= end of LEAFLET JAVASCRIPT CODE, GEOJSON AND ESRI TILELAYERS =================>;
 </script>
-<!--================ end of javascripts ==================-->
+<!--============================================================ END of JS ==============================================================-->
+
 
 
   
