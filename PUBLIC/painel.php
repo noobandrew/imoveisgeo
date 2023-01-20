@@ -88,10 +88,8 @@
     <section class="pt-5" id="destination">
     <div>
     <div class="mb-7 text-center">
-    <h5 class="text-secondary">Visualize os limites da sua propriedade em um mapa</h5>
-    <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">TOPOGRAPHIA</h3>
-    <p> <?php echo json_encode($_POST['login']); ?> </p>
-
+    <h5>Visualize os limites da sua propriedade</h5>
+    Controle o zoom utilizando os botões no canto superior esquerdo do mapa.
     </div>
     </div>
 
@@ -183,8 +181,6 @@
     <!--================ end of main ================-->
 
 
-
-
     <!--================ javascripts ==================-->
     <script
     src="https://example.com/example-framework.js"
@@ -195,12 +191,23 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
     <script src="vendors/fontawesome/all.min.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script type="text/javascript" src="data.json"></script>
+
+
 
     <!--=============== MAIN LEAFLET SCRIPT ===============-->
     <script>
-    var hash = <?php echo json_encode($_POST['login']); ?>; //ECHO do que o usuário digitou na pagina de login
-    var hash = CryptoJS.MD5(hash); // encripta antes de pesquisar na database 
-    var cliente = hash; // atribui a uma variavel mais bonitinha
+
+
+
+
+
+
+
+
+     var cliente = <?php echo json_encode($_POST['login']); ?>; //ECHO do que o usuário digitou na pagina de login
+     var cliente = CryptoJS.MD5(cliente); // encripta antes de pesquisar na database 
+
 
 // ==============================================================================================================================>
 // MAIN LEAFLET JAVASCRIPT CODE, GEOJSON AND ESRI TILELAYERS ====================================================================>
@@ -208,14 +215,40 @@
 // Aqui, defino, primeiramente, a parte básica do mapa, como as tilelayers.
 // Em sequência, defino as coordenadas iniciais, o zoom e também qual será o arquivo .geojson a ser "puxado".
 
-var url = cliente + '.geojson';
+ var url = cliente + '.geojson';
+
+
+
+
+
+
+ var json = (function () {
+    var json = null;
+    $.ajax({
+        'async': false,
+        'global': false,
+        'url': cliente + '.json',
+        'dataType': "json",
+        'success': function (data) {
+            json = data;
+        }
+    });
+    return json;
+})(); 
+
+ let cent = json[0].CENTROIDE;
+ let zoom = json[2].ZOOM;
+
+console.log(cent);
+console.log(zoom);
+
 
 
 
 // linhas para testar se deu certo (INATIVAR QUANDO ESTIVER RODANDO PRA VALER)==========>
-window.onload = function teste(){
-  alert(feature.geometry.coordinates);
-  }
+//window.onload = function teste(){
+ // alert(feature.geometry.coordinates);
+ // }
 // =====================================================================================>
 
 
@@ -227,11 +260,13 @@ window.onload = function teste(){
 // 3 - Atribuir essa variável ao setView; [DONE]
 
 
-// ============================================ ONDE O MAPA COMEÇA E O ZOOM MÁXIMO ============================================
-var map = L.map('map').setView([-29.60114361, -54.74733389], 14); 
-var mapLink = '<a href="http://www.esri.com/">Esri</a>';
-var wholink = 'i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community';
-// ============================================================================================================================
+// ============================================ ONDE O MAPA COMEÇA E O ZOOM inicial ============================================
+
+ map = L.map('map').setView(cent, zoom); 
+ mapLink = '<a href="http://www.esri.com/">Esri</a>';
+ wholink = 'i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community';
+
+// =============================================================================================================================
 
 
 
@@ -243,64 +278,50 @@ maxZoom: 17,
 }).addTo(map);
 //========================================================================================>
 
-
-
-
-// ============================================ DELETAR ============================================
-var geojsonMarkerOptions = {
-'radius':6,
-'opacity':.5,
-'color':"red",
-'fillColor': "blue",
-'fillOpacity': 0.8
-};
-// ==================================================================================================
-
-
 // ==============================================================================================================================>
 // PARTE QUE INTERESSA
 // aqui é onde:  
 // (1) nomeio as propriedades que o Leaflet irá pegar do .geojson 
 // (2) escrevo o link das parcelas utilizando a propriedade 'parcela_co' 
 function forEachFeature(feature, layer){
-var popupContent = "<strong>Nome da área</strong>: " + feature.properties.nome_area + "<br>" + 
+popupContent = "<strong>Nome da área</strong>: " + feature.properties.nome_area + "<br>" + 
 "<strong>Município</strong>: " + feature.properties.munic + "<br>" +
 "<strong>Área em Hectares</strong>: " + feature.properties.areaha + "<br>" +
 '<strong>Link para consulta no SIGEF</strong>: ' +
 '<a href="https://sigef.incra.gov.br/geo/parcela/detalhe/' + feature.properties.parcela_co + '"' + ">" + "Clique aqui" +  "</a>" + "<br>" +
 "<strong>Detentor(es)</strong>: " + feature.properties.BC5PROPRIE
+
 // "<strong>TESTE HASH MD5</strong>: " + cliente + "<br>" 
-// ====================================================================================================================================
-
-
-var coordenadas = [feature.geometry.coordinates];
-Array.prototype.reverse.call(coordenadas);
+// =================================================================================================================================>
 
 
 
 
-//var coordenadas = [feature.geometry.coordinates];
-//var coordenadas = coordenadas.reverse();
+
+
+
+
 
 
 
 //=====> DAR UM JEITO DE INVERTER O ARRAY "FEATURE.GEOMETRY.COORDINATES" AQUI, ANTES DE ATRIBUIR NA FUNÇÃO FITBOUNDS <======== 
 
-
 // bloco de teste da manipulação de array
-window.onload = function teste(){
-   alert(coordenadas);
-  }
+
 // ======================================
+
+
+
+
+
+
 
 
 // função 
-  map.fitBounds(coordenadas);
+//;
+//;
 // ======================================
 
-
-;
-;
 
 
 // Configuração do Popup
@@ -308,10 +329,14 @@ if (feature.properties && feature.properties.popupContent) {
 popupContent += feature.properties.popupContent;
 }
 layer.bindPopup(popupContent);
+
 };
 
-// NÃO SEI EXATAMENTE O QUE EU QUIS FAZER COM ESSE BLOCO. VOU TENTAR DELETÁ-LO
-var bbTeam = L.geoJSON(null, {
+
+
+// não lembro exatamente o que eu quis fazer com esse bloco, mas o app não roda sem ele // 
+
+ prop = L.geoJSON(null, {
 onEachFeature: forEachFeature, 
 pointToLayer: function (feature, latlng) {
 return L.circleMarker(latlng, geojsonMarkerOptions);
@@ -319,24 +344,63 @@ return L.circleMarker(latlng, geojsonMarkerOptions);
 });
 
 
-// Get GeoJSON data and create features, IMPORTANTE DEMAIS =======================================================
+// Get GeoJSON data and create features, IMPORTANTE DEMAIS (JQUERY) =======================================================
+
 $.getJSON(url, function(data) {
-bbTeam.addData(data);
+prop.addData(data);
 }); 
-bbTeam.addTo(map);
+prop.addTo(map);
+
+
+
+
+
+
+
+
+
+
 // ================================================================================================================
-//  $$$$$$$$\ $$\   $$\ $$$$$$$\  
-//  $$  _____|$$$\  $$ |$$  __$$\ 
-//  $$ |      $$$$\ $$ |$$ |  $$ |
-//  $$$$$\    $$ $$\$$ |$$ |  $$ |
-//  $$  __|   $$ \$$$$ |$$ |  $$ |
-//  $$ |      $$ |\$$$ |$$ |  $$ |
-//  $$$$$$$$\ $$ | \$$ |$$$$$$$  |
-//  \________|\__|  \__|\_______/   
+//    $$$$$$$$\ $$\   $$\ $$$$$$$\  
+//    $$  _____|$$$\  $$ |$$  __$$\ 
+//    $$ |      $$$$\ $$ |$$ |  $$ |
+//    $$$$$\    $$ $$\$$ |$$ |  $$ |
+//    $$  __|   $$ \$$$$ |$$ |  $$ |
+//    $$ |      $$ |\$$$ |$$ |  $$ |
+//    $$$$$$$$\ $$ | \$$ |$$$$$$$  |
+//    \________|\__|  \__|\_______/   
+//                             .-----.
+//                            (       )  
+//                           /   .-.  \
+//                          /   /   \  \
+//                         / `  )   (   )
+//                        / `   )   ).  \
+//                      .'  _.   \_/  . |
+//     .--.           .' _.' )`.        |
+//    (    `---...._.'   `---.'_)    ..  \
+//     \            `----....___    `. \  |
+//      `.           _ ----- _   `._  )/  |
+//        `.       /"  \   /"  \`.  `._   |
+//          `.    ((-)` ) ((-)` ) `.   `._\
+//            `-- '`---'   `---' )  `.    `-.
+//               /                  ` \      `-.
+//             .'                      `.       `.
+//            /                     `  ` `.       `-.
+//     .--.   \ ===._____.======. `    `   `. .___.--`     .''''.
+//    ' .` `-. `.                )`. `   ` ` \          .' . '   )
+//   (   .  ` `-.`.               ( .  ` `  .`\      .'  '    ' /
+//    \  `. `    `-.               ) ` .   ` ` \  .'   ' .  '  /
+//     \ ` `.  ` . \`.    .--.     |  ` ) `   .``/   '  // .  /
+//      `.  ``. .   \ \   .-- `.  (  ` /_   ` . / ' .  '/   .'
+//        `. ` \  `  \ \  '-.   `-'  .'  `-.  `   .  .'/  .'
+//          \ `.`.  ` \ \    ) /`._.`       `.  ` .  .'  /
+//           |  `.`. . \ \  (.'               `.   .'  .'
+//        __/  .. \ \ ` ) \                     \.' .. \__
+// .-._.-'     '"  ) .-'   `.                   (  '"     `-._.--.
+//(_________.-====' / .' /\_)`--..__________..-- `====-. _________)
 // ================================================================================================================    
 
 </script>
-<!--============================================================ END of JS ==============================================================-->
 
 
 
