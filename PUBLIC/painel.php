@@ -18,6 +18,8 @@ echo "<script>document.cookie('key=value; SameSite=None; Secure');</script>";
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+<pre id="selection">&nbsp;</pre>
+
 
 
     <!--leaflet js and css links--> 
@@ -28,9 +30,9 @@ echo "<script>document.cookie('key=value; SameSite=None; Secure');</script>";
     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
     crossorigin=""></script>
 
-    <script src="../src/leaflet-geojson-selector.js"></script>
+    <script src="leaflet-geojson-selector.js"></script>
 
-    <link rel="stylesheet" href="../src/leaflet-geojson-selector.css" />
+    <link rel="stylesheet" href="leaflet-geojson-selector.css" />
 
 
 
@@ -293,30 +295,9 @@ popupContent = "<strong>Nome da área</strong>: " + feature.properties.nome_area
 '<a href="https://sigef.incra.gov.br/geo/parcela/detalhe/' + feature.properties.parcela_co + '"' + ">" + "Clique aqui" +  "</a>" + "<br>" +
 "<strong>Detentor(es)</strong>: " + feature.properties.BC5PROPRIE
 
+
 // "<strong>TESTE HASH MD5</strong>: " + cliente + "<br>" 
 // =================================================================================================================================>
-
-
-
-
-
-
-
-
-
-
-
-//=====> DAR UM JEITO DE INVERTER O ARRAY "FEATURE.GEOMETRY.COORDINATES" AQUI, ANTES DE ATRIBUIR NA FUNÇÃO FITBOUNDS <======== 
-
-// bloco de teste da manipulação de array
-
-// ======================================
-
-
-
-
-
-
 
 
 // função 
@@ -348,10 +329,10 @@ return L.circleMarker(latlng, geojsonMarkerOptions);
 
 // Get GeoJSON data and create features, IMPORTANTE DEMAIS (JQUERY) =======================================================
 
-//$.getJSON(url, function(data) {
-//prop.addData(data);
-//}); 
-//prop.addTo(map);
+$.getJSON(url, function(data) {
+prop.addData(data);
+}); 
+prop.addTo(map);
 
 
 
@@ -363,24 +344,26 @@ $.getJSON(url, function(data) {
   var geoList = new L.Control.GeoJSONSelector(geoLayer, {
     zoomToLayer: true,
     listItemBuild: function(layer) {
-      return L.Util.template('<small><b>{name}</b><br>Length: {length} <br>Area: {area} </small>', layer.feature.properties);
+      return L.Util.template('<small><b>{nome_area}</b><br>Length: {status} <br>Area: {areaha} </small>', feature.properties);
     }
   }).addTo(map);
 
+  
   geoList.on('selector:change', function(e) {
 
-    var jsonObj = $.parseJSON( JSON.stringify(e.layers[0].feature.properties) );
-    var html = 'Selection:<br /><table border="1">';
-    $.each(jsonObj, function(key, value){
-        html += '<tr>';
-        html += '<td>' + key.replace(":", " ") + '</td>';
-        html += '<td>' + value + '</td>';
-        html += '</tr>';
-    });
-    html += '</table>';
+var jsonObj = $.parseJSON(e.layers[0].feature.properties);
+var html = 'Selection:<br /><table border="1">';
+$.each(jsonObj, function(key, value){
+    html += '<tr>';
+    html += '<td>' + key.replace(":", " ") + '</td>';
+    html += '<td>' + value + '</td>';
+    html += '</tr>';
+});
+html += '</table>';
 
-    $('.selection').html(html);
-  });
+$('.selection').html(html);
+});
+
   
 
   map.addControl(function() {

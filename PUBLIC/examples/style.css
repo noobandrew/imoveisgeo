@@ -2,11 +2,15 @@ body {
 	background:#b5d0d0;
 	color:#285585;
 	font-family:Arial;
+	border: 5px solid;
+	text-align: center;
 }
 body#home {
 	/*background:url('images/back.png') no-repeat top left #b5d0d0;*/
 	margin-left:150px;
 }
+
+
 
 a {
 	color:#1978cf;

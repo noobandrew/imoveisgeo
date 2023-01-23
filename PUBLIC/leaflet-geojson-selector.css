@@ -1,5 +1,5 @@
  
-/* css do seletor de mapas para o custom-item.html */
+/* css do seletor de mapas para o painel.php */
 
 
 .leaflet-container .geojson-list {
@@ -27,7 +27,7 @@
 	margin: 0;
 	clear: both;
 	cursor: pointer;
-	display: block;
+	display:flex;
 	overflow: hidden;
 	line-height: 18px;
 	vertical-align: middle;
@@ -61,7 +61,7 @@
 	margin: 4px;
 }
 .geojson-list-item label {
-	display: block;
+	display: flex;
 	cursor: pointer;
 	vertical-align: middle;
 }

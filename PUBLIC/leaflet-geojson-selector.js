@@ -1,4 +1,4 @@
-// javascript do seletor de mapas do CUSTOM-ITEM.HTML
+// javascript do seletor de mapas do painel.php
 
 
 /*
@@ -33,7 +33,7 @@ L.Control.GeoJSONSelector = L.Control.extend({
 	options: {
 		position: 'bottomleft',			//position of panel list
 		
-		listLabel: 'properties.nome_area',	//GeoJSON property to generate items list
+		listLabel: 'properties.name',	//GeoJSON property to generate items list
 		listSortBy: null,				//GeoJSON property to sort items list, default listLabel
 		listItemBuild: null,			//function list item builder
 		
@@ -256,9 +256,9 @@ L.Control.GeoJSONSelector = L.Control.extend({
 	},
 
 	// IE7 bugs out if you create a radio dynamically, so you have to do it this hacky way (see http://bit.ly/PqYLBe)
-	_createInputElement: function (type, name, checked) {
+	_createInputElement: function (type, nome_area, checked) {
 
-		var radioHtml = '<input type="'+type+'" name="' + name + '"';
+		var radioHtml = '<input type="'+type+'" name="' + nome_area + '"';
 		if (checked)
 			radioHtml += ' checked="checked"';
 		radioHtml += '/>';
