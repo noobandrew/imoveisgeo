@@ -1,3 +1,11 @@
+<?php
+
+echo "<script>document.cookie('key=value; SameSite=None; Secure');</script>";
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-BR" dir="ltr">
 
@@ -19,6 +27,12 @@
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
     crossorigin=""></script>
+
+    <script src="../src/leaflet-geojson-selector.js"></script>
+
+    <link rel="stylesheet" href="../src/leaflet-geojson-selector.css" />
+
+
 
     <!--jquery js link-->
 
@@ -98,7 +112,7 @@
 
 
 
-    <div id="map" style="height:500px; width: 400px; position:relative; justify-content:center; outline:none; margin-left:auto; margin-right:auto; display:block"
+    <div id="map" style="height:500px; width: 600px; position:relative; justify-content:center; outline:none; margin-left:auto; margin-right:auto; display:block"
     class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom"
     tabindex="0">
     <div class="leaflet-pane leaflet-map-pane"
@@ -185,23 +199,15 @@
     <script
     src="https://example.com/example-framework.js"
     crossorigin="anonymous"></script>
-    <script src="vendors/@popperjs/popper.min.js"></script>
     <script src="vendors/bootstrap/bootstrap.min.js"></script>
     <script src="vendors/is/is.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
     <script src="vendors/fontawesome/all.min.js"></script>
     <script src="assets/js/theme.js"></script>
-    <script type="text/javascript" src="data.json"></script>
 
 
 
     <!--=============== MAIN LEAFLET SCRIPT ===============-->
     <script>
-
-
-
-
-
 
 
 
@@ -216,10 +222,6 @@
 // Em sequência, defino as coordenadas iniciais, o zoom e também qual será o arquivo .geojson a ser "puxado".
 
  var url = cliente + '.geojson';
-
-
-
-
 
 
  var json = (function () {
@@ -346,11 +348,50 @@ return L.circleMarker(latlng, geojsonMarkerOptions);
 
 // Get GeoJSON data and create features, IMPORTANTE DEMAIS (JQUERY) =======================================================
 
-$.getJSON(url, function(data) {
-prop.addData(data);
-}); 
-prop.addTo(map);
+//$.getJSON(url, function(data) {
+//prop.addData(data);
+//}); 
+//prop.addTo(map);
 
+
+
+$.getJSON(url, function(data) {
+
+
+  var geoLayer = L.geoJson(data).addTo(map);
+  
+  var geoList = new L.Control.GeoJSONSelector(geoLayer, {
+    zoomToLayer: true,
+    listItemBuild: function(layer) {
+      return L.Util.template('<small><b>{name}</b><br>Length: {length} <br>Area: {area} </small>', layer.feature.properties);
+    }
+  }).addTo(map);
+
+  geoList.on('selector:change', function(e) {
+
+    var jsonObj = $.parseJSON( JSON.stringify(e.layers[0].feature.properties) );
+    var html = 'Selection:<br /><table border="1">';
+    $.each(jsonObj, function(key, value){
+        html += '<tr>';
+        html += '<td>' + key.replace(":", " ") + '</td>';
+        html += '<td>' + value + '</td>';
+        html += '</tr>';
+    });
+    html += '</table>';
+
+    $('.selection').html(html);
+  });
+  
+
+  map.addControl(function() {
+    var c = new L.Control({position:'bottomright'});
+    c.onAdd = function(map) {
+        return L.DomUtil.create('pre','selection');
+      };
+    return c;
+  }());
+  
+});
 
 
 
