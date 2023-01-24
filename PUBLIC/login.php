@@ -63,7 +63,7 @@
 			<img src="img/BluePlanet.svg" width="200" height="300">
 		</div>
 		<div class="login-content">
-			<form action="painel.php" method="post">
+			<form action="custom-item.php" method="post">
 				<img src="img/avatar.svg"><br><br><br>
            		<div class="input-div one">
            		   <div class="i">

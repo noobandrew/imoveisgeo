@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+  <title>Topographia</title>
+  <link rel='stylesheet' href='https://unpkg.com/leaflet@1.1.0/dist/leaflet.css'><link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="src/leaflet-geojson-selector.css" />
+
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<head>
+  <title>Responsive Leaflet Map with Flexbox</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
+</head>
+  
+  <body>
+    <div class="container">
+      <div class="header">
+         <h1 class="title">Topographia <a href="https://caniuse.com/#feat=flexbox" target="_blank"></a></h1>
+      </div>
+      <div class="map-container">
+        <div class="map-frame">  
+          <div id="map-id"</div>
+        </div>
+      </div>
+    </div>
+  </body>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js'></script><script  src="./script.js"></script>
+  <script src="src/leaflet-geojson-selector.js"></script>
+<script src="//unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
+<script src="src/leaflet-geojson-selector.js"></script>
+  <script>
+
+    
+    //var cliente = <?php echo json_encode($_POST['login']); ?>; //ECHO do que o usuário digitou na pagina de login
+    //var cliente = CryptoJS.MD5(cliente); // encripta antes de pesquisar na database 
+    var url = "8afeb188cde292d2001f365f4e94f315.geojson";
+
+
+
+
+
+    
+
+    map.addControl(L.control.zoom({ position:'topright' }));
+
+	$.getJSON(url, function(json) {
+
+		var geoLayer = L.geoJson(json).addTo(map);
+		
+		var geoList = new L.Control.GeoJSONSelector(geoLayer, {
+			zoomToLayer: true,
+			listItemBuild: function(layer) {
+				return L.Util.template('<small><b>{nome_area}</b><br>Status: {status} <br>Area: {areaha} </small>', layer.feature.properties);
+			}
+		}).addTo(map);
+
+		geoList.on('selector:change', function(e) {
+
+			var jsonObj = e.layers[0].feature.properties;
+			var html = '<table border="2">';
+			$.each(jsonObj, function(key, value){
+					html += '<tr>';
+					html += '<td>' + key.replace(":", " ") + '</td>';
+					html += '<td>' + value + '</td>';
+					html += '</tr>';
+
+			});
+			html += '</table>';
+
+			$('.selection').html(html);
+			
+		});
+		
+
+		map.addControl(function() {
+			var c = new L.Control({position:'bottomleft'});
+			c.onAdd = function(map) {
+					return L.DomUtil.create('pre','selection');
+				};
+			return c;
+		}());
+		
+	});
+
+
+  </script>
+
+
+</body>
+</html>

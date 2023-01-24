@@ -161,7 +161,7 @@ echo "<script>document.cookie('key=value; SameSite=None; Secure');</script>";
 
     <!-- rodape begin ============================-->
     <section class="pb-0 pb-lg-4">
-    <!--============================================ HTML DO LEAFLET ============================================-->
+    <!--============================================ fim do HTML DO LEAFLET ============================================-->
     <div class="container">
     <div class="row">
     <div class="col-lg-3 col-md-7 col-12 mb-4 mb-md-6 mb-lg-0 order-0"> <img class="mb-4" src="assets/img/logo2.svg" width="150" />
@@ -299,10 +299,6 @@ popupContent = "<strong>Nome da área</strong>: " + feature.properties.nome_area
 // "<strong>TESTE HASH MD5</strong>: " + cliente + "<br>" 
 // =================================================================================================================================>
 
-
-// função 
-//;
-//;
 // ======================================
 
 
