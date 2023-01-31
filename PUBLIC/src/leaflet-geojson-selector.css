@@ -27,11 +27,11 @@
 	margin: 0;
 	clear: both;
 	cursor: pointer;
-	display: block;
+	display:flex;
 	overflow: hidden;
-	line-height: 18px;
+	line-height: 14px;
 	vertical-align: middle;
-	font-size: 14px;
+	font-size: 12px;
 	min-width: 120px;
 	color: rgb(0, 0, 0);	
 	text-decoration: none;

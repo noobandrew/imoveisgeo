@@ -10,6 +10,8 @@
 <!--CRYPTOJS link-->
 <script src="js/core.min.js"></script>    
 <script src="js/md5.js"></script>
+<script src="js/sha3.js"></script>
+
 <script src="js/crypto-js.js"></script>
 
 
@@ -20,8 +22,7 @@
 
 
 
-<link rel="stylesheet" href="css/leaflet.css"
-integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="crossorigin=""/>
+<link rel="stylesheet" href="css/leaflet.css"/>
 
 
 
@@ -29,7 +30,7 @@ integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="crossorigin=""/>
 <link rel="stylesheet" href="style.css" />
 </head>
 
-<body style="background-image: url('topo.jpg');">
+<body style="background-image: url('topo.jpeg');">
 <div id="map" style="height:680px; position:relative; justify-content:center; outline:none; margin-left:10px; margin-right:10px; display:block"
 class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom"
 tabindex="0">
@@ -73,7 +74,7 @@ crossorigin=""></script>
 
 	
 var cliente = <?php echo json_encode($_POST['login']); ?>; //ECHO do que o usuário digitou na pagina de login
-var cliente = CryptoJS.MD5(cliente); // encripta antes de pesquisar na database 
+var cliente = CryptoJS.SHA3(cliente); // encripta antes de pesquisar na database
 var url = cliente + '.geojson';
 
 
@@ -126,7 +127,7 @@ function forEachFeature(feature, layer){
 
 	geoList.on('selector:change', function(e) {
 	 jsonObj = e.layers[0].feature.properties;
-	 html = '<table border="2">';
+	 html = '<table border="1">';
 
 
 //==============Função EACH do JQUERY - fica repetindo o conteúdo da função em cada uma das propriedades do GEOJSON=======================
@@ -136,7 +137,6 @@ function forEachFeature(feature, layer){
 	html += '<tr>' + "<strong>Nome da área</strong>: " + jsonObj.nome_area + "<br>" + '</tr>';
 	html += '<tr>' + "<strong>Município</strong>: " + jsonObj.munic + "<br>" + '</tr>';
 	html += '<tr>' + "<strong>Área em Hectares</strong>: " + jsonObj.areaha + "<br>" + '</tr>';
-	html += '<tr>' + "<strong>Nome da área</strong>: " + jsonObj.nome_area + "<br>" + '</tr>';
 	html += '<tr>' + "<strong>Detentor(es)</strong>: " + jsonObj.BC5PROPRIE + "<br>" + '</tr>';
 	html += '<tr>' + '<a href="https://sigef.incra.gov.br/geo/parcela/detalhe/' +  jsonObj.parcela_co + '"' + ">" + "SIGEF" +  "</a>" + "<br>" + '</tr>';
 	html += '</table>';
