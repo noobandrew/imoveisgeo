@@ -31,7 +31,7 @@
 </head>
 
 <body style="background-image: url('topo.jpeg');">
-<div id="map" style="height:680px; position:relative; justify-content:center; outline:none; margin-left:10px; margin-right:10px; display:block"
+<div id="map" style="height:720px; position:relative; justify-content:center; outline:none; margin-left:10px; margin-right:10px; display:block"
 class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom"
 tabindex="0">
 <div class="leaflet-pane leaflet-map-pane"

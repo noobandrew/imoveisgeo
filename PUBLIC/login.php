@@ -76,8 +76,7 @@
 				<div class="button">
 				<input type="submit">
 				</div>
-
-            	<a href="#" id="recover-password-button" disabled="true"><br>Problemas com o Login? Clique aqui.</a>
+            	<a href="." onclick="window.location='mailto:andrewhammelcontato@gmail.com'; return false;" class="login-problem"><br>Problemas com o Login? Envie um e-mail</a>
             </form>
         </div>
     </div>

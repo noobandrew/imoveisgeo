@@ -13,6 +13,13 @@ body{
 }
 
 
+
+
+
+.login-problem {
+	text-align: center;
+}
+
 input {
     border: none;
 }
@@ -133,7 +140,7 @@ button[disabled] {
     display: block;
     width: 25px;
     height: 10px;
-    border-top: 2px solid #eee;
+    border-top: 2px solid rgb(227, 140, 27);
   }
   .nav > .nav-links {
     position: absolute;
@@ -197,7 +204,7 @@ button[disabled] {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap :7rem;
-    padding: 0 2rem;
+    padding: 0 1rem;
 }
 
 .img{
@@ -309,7 +316,7 @@ form{
 	top: 50%;
 	transform: translateY(-50%);
 	color: #999;
-	font-size: 15px;
+	font-size: 11px;
 	transition: .3s;
     font-family: "PT Sans", sans-serif;
 
@@ -408,7 +415,7 @@ a:hover{
 
 @media screen and (max-width: 1000px){
 	form{
-		width: 290px;
+		width: 358px;
 	}
 
 	.login-content h2{
