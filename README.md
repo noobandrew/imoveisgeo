@@ -17,3 +17,7 @@ A ideia foi dada, como já disse, pelo Aécio Dambrowski, pois ele acreditou ser
 - [Leaflet GeoJSON Selector](https://github.com/stefanocudini/leaflet-geojson-selector) - Esse repositório foi a principal inspiração para conseguir realizar de forma coerente o que imaginei.
 - [PHP] - Utilizado para lidar com os formulários.
 - [jQuery] - Utilizado para chamar os arquivos.
+
+Fora isso, muita pesquisa, muita dor de cabeça, muito StackOverflow, muitos vídeos de Youtube com 20 visualizações. 
+
+*[DEMO](https://imoveisgeo.com.br)* - Faça login com o código "exemplo". O link para o SIGEF não funciona, pois depende de um código verdadeiro dado por um cliente de verdade.
