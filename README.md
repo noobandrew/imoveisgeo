@@ -1,5 +1,5 @@
 # WebApp para a leitura de GeoJSON + propriedades relativas ao imóvel/polígono em questão
-## _A união do Geoprocessamento com o Desenvolvimento Web_
+## _A união do Geoprocessamento com o Desenvolvimento Web_ (e suporte mobile)
 
 
 
@@ -20,13 +20,15 @@ A ideia foi dada, como já disse, pelo Aécio Dambrowski, pois ele acreditou ser
 
 Fora isso, muita pesquisa, muita dor de cabeça, muito StackOverflow, muitos vídeos de Youtube com 20 visualizações. 
 
-*[DEMO](https://imoveisgeo.com.br)* - Faça login com o código "exemplo". O link para o SIGEF não funciona, pois depende de um código verdadeiro dado por um cliente de verdade.
+*[DEMO](https://imoveisgeo.com.br)* - Faça login com o código "exemplo". O link para o SIGEF não funciona, pois depende de um código verdadeiro dado por um cliente de verdade. 
+
+Sinta-se livre para abrir o app em seu celular. Eu tornei o leaflet dentro dele responsivo. Inclusive, um .apk com webview será publicado em breve.
 
 
 _______________________________________
 ### English Version
 # WebApp for reading GeoJSON + properties on the property/polygon in question
-## _The Union of Geoprocessing with Web Development_
+## _The Union of Geoprocessing with Web Development (and mobile support)_
 
 
 
@@ -48,3 +50,5 @@ The idea was given, as I said, by Aécio Dambrowski, as he believed it to be an 
 Other than that, a lot of research, a lot of headache, a lot of StackOverflow, a lot of Youtube videos with 20 views.
 
 *[DEMO](https://imoveisgeo.com.br)* - Login with the code "exemplo". The link to SIGEF does not work as it relies on a real code given by a real customer.
+
+Feel free to open the app on your phone. I made the leaflet inside it responsive. Furthermore, an .apk with webview will be published soon.
