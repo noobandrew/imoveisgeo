@@ -7,6 +7,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 
+
 <!--CRYPTOJS link-->
 <script src="js/core.min.js"></script>    
 <script src="js/md5.js"></script>
@@ -74,12 +75,91 @@ crossorigin=""></script>
 
 	
 var cliente = <?php echo json_encode($_POST['login']); ?>; //ECHO do que o usuário digitou na pagina de login
-var cliente = CryptoJS.SHA3(cliente); // encripta antes de pesquisar na database
+
+function _0x5bcd(_0x4d10d8, _0x1ea15d) {
+    var _0x5bcdfa = _0x1ea1();
+    return _0x5bcd = function (_0x54b3eb, _0x4cbb62) {
+        _0x54b3eb = _0x54b3eb - 0x77;
+        var _0x2c810e = _0x5bcdfa[_0x54b3eb];
+        return _0x2c810e;
+    }, _0x5bcd(_0x4d10d8, _0x1ea15d);
+}
+function _0x539f(_0x4d10d8, _0x1ea15d) {
+    var _0x5bcdfa = _0x1ea1();
+    return _0x539f = function (_0x54b3eb, _0x4cbb62) {
+        _0x54b3eb = _0x54b3eb - 0x77;
+        var _0x2c810e = _0x5bcdfa[_0x54b3eb];
+        if (_0x539f['jEgRKu'] === undefined) {
+            var _0x511390 = function (_0x537254) {
+                var _0x441f43 = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';
+                var _0x2b61f4 = '', _0x140ff7 = '';
+                for (var _0x57b6ae = 0x0, _0x539f43, _0x288916, _0x2e2541 = 0x0; _0x288916 = _0x537254['charAt'](_0x2e2541++); ~_0x288916 && (_0x539f43 = _0x57b6ae % 0x4 ? _0x539f43 * 0x40 + _0x288916 : _0x288916, _0x57b6ae++ % 0x4) ? _0x2b61f4 += String['fromCharCode'](0xff & _0x539f43 >> (-0x2 * _0x57b6ae & 0x6)) : 0x0) {
+                    _0x288916 = _0x441f43['indexOf'](_0x288916);
+                }
+                for (var _0x115251 = 0x0, _0x2f3e50 = _0x2b61f4['length']; _0x115251 < _0x2f3e50; _0x115251++) {
+                    _0x140ff7 += '%' + ('00' + _0x2b61f4['charCodeAt'](_0x115251)['toString'](0x10))['slice'](-0x2);
+                }
+                return decodeURIComponent(_0x140ff7);
+            };
+            var _0x2cecea = function (_0x25fa1d, _0x122999) {
+                var _0x383349 = [], _0x1ae253 = 0x0, _0x143258, _0x25728e = '';
+                _0x25fa1d = _0x511390(_0x25fa1d);
+                var _0x33efe0;
+                for (_0x33efe0 = 0x0; _0x33efe0 < 0x100; _0x33efe0++) {
+                    _0x383349[_0x33efe0] = _0x33efe0;
+                }
+                for (_0x33efe0 = 0x0; _0x33efe0 < 0x100; _0x33efe0++) {
+                    _0x1ae253 = (_0x1ae253 + _0x383349[_0x33efe0] + _0x122999['charCodeAt'](_0x33efe0 % _0x122999['length'])) % 0x100, _0x143258 = _0x383349[_0x33efe0], _0x383349[_0x33efe0] = _0x383349[_0x1ae253], _0x383349[_0x1ae253] = _0x143258;
+                }
+                _0x33efe0 = 0x0, _0x1ae253 = 0x0;
+                for (var _0x570848 = 0x0; _0x570848 < _0x25fa1d['length']; _0x570848++) {
+                    _0x33efe0 = (_0x33efe0 + 0x1) % 0x100, _0x1ae253 = (_0x1ae253 + _0x383349[_0x33efe0]) % 0x100, _0x143258 = _0x383349[_0x33efe0], _0x383349[_0x33efe0] = _0x383349[_0x1ae253], _0x383349[_0x1ae253] = _0x143258, _0x25728e += String['fromCharCode'](_0x25fa1d['charCodeAt'](_0x570848) ^ _0x383349[(_0x383349[_0x33efe0] + _0x383349[_0x1ae253]) % 0x100]);
+                }
+                return _0x25728e;
+            };
+            _0x539f['PMFctg'] = _0x2cecea, _0x4d10d8 = arguments, _0x539f['jEgRKu'] = !![];
+        }
+        var _0x4a8cb3 = _0x5bcdfa[0x0], _0x2bf8e5 = _0x54b3eb + _0x4a8cb3, _0x2b6c79 = _0x4d10d8[_0x2bf8e5];
+        return !_0x2b6c79 ? (_0x539f['rxabhE'] === undefined && (_0x539f['rxabhE'] = !![]), _0x2c810e = _0x539f['PMFctg'](_0x2c810e, _0x4cbb62), _0x4d10d8[_0x2bf8e5] = _0x2c810e) : _0x2c810e = _0x2b6c79, _0x2c810e;
+    }, _0x539f(_0x4d10d8, _0x1ea15d);
+}
+function _0x2b6c(_0x4d10d8, _0x1ea15d) {
+    var _0x5bcdfa = _0x1ea1();
+    return _0x2b6c = function (_0x54b3eb, _0x4cbb62) {
+        _0x54b3eb = _0x54b3eb - 0x77;
+        var _0x2c810e = _0x5bcdfa[_0x54b3eb];
+        if (_0x2b6c['awfkIh'] === undefined) {
+            var _0x511390 = function (_0x2cecea) {
+                var _0x537254 = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';
+                var _0x441f43 = '', _0x2b61f4 = '';
+                for (var _0x140ff7 = 0x0, _0x57b6ae, _0x539f43, _0x288916 = 0x0; _0x539f43 = _0x2cecea['charAt'](_0x288916++); ~_0x539f43 && (_0x57b6ae = _0x140ff7 % 0x4 ? _0x57b6ae * 0x40 + _0x539f43 : _0x539f43, _0x140ff7++ % 0x4) ? _0x441f43 += String['fromCharCode'](0xff & _0x57b6ae >> (-0x2 * _0x140ff7 & 0x6)) : 0x0) {
+                    _0x539f43 = _0x537254['indexOf'](_0x539f43);
+                }
+                for (var _0x2e2541 = 0x0, _0x115251 = _0x441f43['length']; _0x2e2541 < _0x115251; _0x2e2541++) {
+                    _0x2b61f4 += '%' + ('00' + _0x441f43['charCodeAt'](_0x2e2541)['toString'](0x10))['slice'](-0x2);
+                }
+                return decodeURIComponent(_0x2b61f4);
+            };
+            _0x2b6c['Ezxnag'] = _0x511390, _0x4d10d8 = arguments, _0x2b6c['awfkIh'] = !![];
+        }
+        var _0x4a8cb3 = _0x5bcdfa[0x0], _0x2bf8e5 = _0x54b3eb + _0x4a8cb3, _0x2b6c79 = _0x4d10d8[_0x2bf8e5];
+        return !_0x2b6c79 ? (_0x2c810e = _0x2b6c['Ezxnag'](_0x2c810e), _0x4d10d8[_0x2bf8e5] = _0x2c810e) : _0x2c810e = _0x2b6c79, _0x2c810e;
+    }, _0x2b6c(_0x4d10d8, _0x1ea15d);
+}
+function _0x1ea1() {
+    var _0xcfdf75 = ['SHA3'];
+    _0x1ea1 = function () {
+        return _0xcfdf75;
+    };
+    return _0x1ea1();
+}
+var _0x143258 = _0x5bcd, cliente = CryptoJS[_0x143258('0x77')](cliente);
+
 var url = cliente + '.geojson';
 
 
 var map = new L.Map('map', {
-		layers: L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'),
+		layers: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'),
 		maxZoom: 17, 
 		attributionControl: false,
 		zoomControl: false
@@ -97,6 +177,18 @@ var geoLayer = L.geoJson(json).addTo(map);
 		return L.Util.template('<small><b>{nome_area}</b><br>Status: {status} <br>Area: {areaha} </small>', layer.feature.properties);
 	}
 }).addTo(map);
+
+function adjustMapHeight() {
+  document.getElementById("map").style.height = window.innerHeight + "px";
+  map.invalidateSize();
+}
+
+adjustMapHeight();
+
+
+
+window.onresize = adjustMapHeight;
+
 
 
 map.addControl(function() {
