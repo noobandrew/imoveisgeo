@@ -57,15 +57,16 @@ L.Control.GeoJSONSelector = L.Control.extend({
 		activeStyle: {					//style for Active GeoJSON feature
 			color:'#00f',
 			fillColor:'#fc0',
-			fillOpacity: 0.9,
+			fillOpacity: 0.6,
 			opacity: 1,
 			weight: 1
+			
 		},
 		selectClass: 'selected',
 		selectStyle: {
 			color:'#00f',
 			fillColor:'#f80',
-			fillOpacity: 0.8,
+			fillOpacity: 0.2,
 			opacity: 1,
 			weight: 1
 		}
