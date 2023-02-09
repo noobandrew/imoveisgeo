@@ -11,8 +11,28 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<!-- Load an icon library to show a bar menu on small screens -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="assets/css/theme.css" rel="stylesheet" />
+
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+
+	<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
 
 	
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>    
@@ -45,15 +65,15 @@
 		
 		<div class="nav-links">
 
-		  <a href="https://www.topographia.com.br/" target="_blank">Home</a>
-		  <a href="https://www.topographia.com.br/nossa-empresa" target="_blank">Empresa</a>
-		  <a href="https://www.topographia.com.br/servicos" target="_blank">Serviços</a>
-		  <a href="https://www.topographia.com.br/clientes" target="_blank">Clientes</a>
-		  <a href="https://www.topographia.com.br/blog" target="_blank">Blog</a>
-		  <a href="https://www.topographia.com.br/#orcamento" target="_blank">Orçamento</a>
-		  <a href="https://www.topographia.com.br/informacoes" target="_blank">Informações</a>
-		  <a href="https://www.topographia.com.br/contato" target="_blank">Contato</a>
-		  <a href="https://www.topographia.com.br/politica-privacidade" target="_blank">Política de Privacidade</a>
+		  <a href="https://www.topographia.com.br/" target="_blank"  class ="xii">Home</a>
+		  <a href="https://www.topographia.com.br/nossa-empresa" target="_blank"  class ="xii">Empresa</a>
+		  <a href="https://www.topographia.com.br/servicos" target="_blank"  class ="xii">Serviços</a>
+		  <a href="https://www.topographia.com.br/clientes" target="_blank"  class ="xii">Clientes</a>
+		  <a href="https://www.topographia.com.br/blog" target="_blank"  class ="xii">Blog</a>
+		  <a href="https://www.topographia.com.br/#orcamento" target="_blank"  class ="xii">Orçamento</a>
+		  <a href="https://www.topographia.com.br/informacoes" target="_blank"  class ="xii">Informações</a>
+		  <a href="https://www.topographia.com.br/contato" target="_blank"  class ="xii">Contato</a>
+		  <a href="https://www.topographia.com.br/politica-privacidade" target="_blank"  class ="xii">Política de Privacidade</a>
 
 		</div>
 	  </div>
@@ -76,10 +96,12 @@
 				<div class="button">
 				<input type="submit">
 				</div>
-            	<a href="." onclick="window.location='mailto:andrewhammelcontato@gmail.com'; return false;" class="login-problem"><br>Problemas com o Login? Envie um e-mail</a>
+            	<a href="." class ="xii" onclick="window.location='mailto:andrewhammelcontato@gmail.com'; return false;" class="login-problem">Problemas com o Login? Envie um e-mail</a>
+				</div>
             </form>
         </div>
     </div>
+    </main>
     <script type="text/javascript" src="js/main.js"></script>
 	<script>
 		

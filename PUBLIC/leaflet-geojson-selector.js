@@ -66,8 +66,8 @@ L.Control.GeoJSONSelector = L.Control.extend({
 			color:'#00f',
 			fillColor:'#f80',
 			fillOpacity: 0.8,
-			opacity: 1,
-			weight: 1
+			opacity: 0.2,
+			weight: 0.5
 		}
 	},
 

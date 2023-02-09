@@ -372,16 +372,36 @@ form{
 	margin-bottom: 4px;
 }
 
-a{
+.xii {
 	display: block;
-	text-align: right;
+	text-align: center;
 	text-decoration: none;
 	color: #999;
 	font-size: 0.9rem;
 	transition: .3s;
+	padding: 0.5rem 0.7rem;
+
+
+	
+
 }
 
-a:hover{
+.rights {
+	display: block;
+	height: 5px;
+	outline: none;
+	border: none;
+	color: #cdcdcd97;
+	font-family: 'Poppins', sans-serif;
+	cursor: pointer;
+	transition: .5s;
+	text-decoration: none;
+	
+
+}
+
+
+a:hover , a:active{
 	color: #38d39f;
 }
 
