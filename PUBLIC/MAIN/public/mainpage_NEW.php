@@ -1,3 +1,18 @@
+<?php
+
+session_start();
+if((!isset ($_SESSION['codigo']) == true))
+{
+  header('location:index.php');
+  }
+
+$logado = $_SESSION['nome'];
+?>
+
+
+
+
+
 <!DOCTYPE html> 
 <head> 
 <title>| PAINEL |</title>
@@ -89,7 +104,7 @@
     
     <div class="panel dv-expandable">
         <div style=text-align:center;>
-            <strong>Parcela X</strong>
+            <strong>Bem-vindo, <?php $logado; ?></strong>
         </div>
         <div>
 

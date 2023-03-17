@@ -1,59 +1,5 @@
 <!--============================================ PHP START ===========================================-->
-<?php
 
-include('conexao.php');
-
-if(isset($_POST['login']))  {
-
-	if(strlen($_POST['login']) == 0) {
-		echo "Preencha seu Código";
-	} else {
-
-		$login = $mysqli->real_escape_string($_POST['login']);
-
-
-		$sql_code = "SELECT * FROM usuarios WHERE login = '$login'";
-		$sql_query = $mysqli->query($sql_code) or die("Falha SQL:" . $mysqli->error);
-
-
-		$quantidade = $sql_query->num_rows;
-
-
-		if($quantidade == 1) {
-
-			$usuario = $sql_query->fetch_assoc();
-
-			if(!isset($_SESSION)) {
-				session_start();
-			}
-
-			$_SESSION['id'] = $usuario['id'];
-
-			header("Location: mainpage.php");
-			
-
-		} else {
-			echo "FALHA AO LOGAR";
-
-		}
-
-
-
-
-
-
-
-
-
-
-	}
-
-}
-
-
-
-
-?>
 
 
 
@@ -139,17 +85,16 @@ if(isset($_POST['login']))  {
 	<img class="wave" src="img/wave.png">
 	<div class="container">
 		<div class="img">
-		<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1A8YWSDGIzJJTGjk-FHcrWEHxlNO8QoE&ehbc=2E312F" width="640" height="480"></iframe>
 		</div>
 		<div class="login-content">
-			<form action="mainpage.php" method="post">
+			<form action="mainpage_NEW.php" method="POST">
 				<img src="img/avatar.svg"><br><br><br>
            		<div class="input-div one">
            		   <div class="i">
            		   		<i class="fas fa-user"></i>
            		   </div>
            		   <div class="div">
-           		   		<input type="text" placeholder="Insira seu código TOPOGRAPHIA" name="login" >
+           		   		<input type="text" placeholder="Insira seu código TOPOGRAPHIA" name="codigo" >
            		   </div>
             	</div>
 				<div class="button">
@@ -165,6 +110,7 @@ if(isset($_POST['login']))  {
 	<script>
 		
 
+		console.log($result);
 
 
 
