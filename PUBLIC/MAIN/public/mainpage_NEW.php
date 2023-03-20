@@ -1,13 +1,25 @@
 <?php
 
 session_start();
+include_once('conexao.php');
 print_r($_SESSION);
+
 if((!isset ($_SESSION['codigo']) == true))
 {
-  unset($_SESSION['codigo']);
-  header('location:index.php');
-  }
+  	unset($_SESSION['codigo']);
+  	header('location:index.php');
+}
+
   $logado = $_SESSION['codigo'];
+  print_r($logado);
+
+  $sql = "SELECT * FROM `USUARIOS` WHERE pro1code = '$logado' OR pro2code = '$logado' OR pro3code = '$logado' OR pro4code = '$logado' OR pro5code = '$logado'";
+
+  $result = $conexao->query($sql);
+
+  print_r($result);
+  $user_data = mysqli_fetch_assoc($result);
+  print_r($user_data);
 ?>
 
 
@@ -105,7 +117,7 @@ if((!isset ($_SESSION['codigo']) == true))
     
     <div class="panel dv-expandable">
         <div style=text-align:center;>
-            <strong>Bem-vindo, <?php $logado; ?></strong>
+            <strong>Bem-vindo, <?php echo $logado; ?></strong>
         </div>
         <div>
 
@@ -120,7 +132,7 @@ if((!isset ($_SESSION['codigo']) == true))
 </tfoot>
 <tbody>
 <tr>
-<td>cell1_1</td><td>cell2_1</td></tr>
+<td>Nome da propriedade</td><td><?php echo $user_data['id'] ?></td></tr>
 <tr>
 <td>cell1_2</td><td>cell2_2</td></tr>
 <tr>
