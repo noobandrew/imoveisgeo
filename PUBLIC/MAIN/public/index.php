@@ -87,14 +87,14 @@
 		<div class="img">
 		</div>
 		<div class="login-content">
-			<form action="mainpage_NEW.php" method="POST">
+			<form action="testLogin.php" method="POST">
 				<img src="img/avatar.svg"><br><br><br>
            		<div class="input-div one">
            		   <div class="i">
            		   		<i class="fas fa-user"></i>
            		   </div>
            		   <div class="div">
-           		   		<input type="text" placeholder="Insira seu código TOPOGRAPHIA" name="codigo" >
+           		   		<input type="text" placeholder="Insira seu código TOPOGRAPHIA" name="codigo" id="codigo" >
            		   </div>
             	</div>
 				<div class="button">
@@ -110,7 +110,6 @@
 	<script>
 		
 
-		console.log($result);
 
 
 

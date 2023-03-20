@@ -1,12 +1,13 @@
 <?php
 
 session_start();
+print_r($_SESSION);
 if((!isset ($_SESSION['codigo']) == true))
 {
+  unset($_SESSION['codigo']);
   header('location:index.php');
   }
-
-$logado = $_SESSION['nome'];
+  $logado = $_SESSION['codigo'];
 ?>
 
 
