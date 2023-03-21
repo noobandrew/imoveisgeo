@@ -17,7 +17,9 @@ table.greyGridTable {
 	background-color: #EEEEEE;
 	width: 100%;
 	text-align: center;
-	border-collapse: collapse;
+	padding: auto;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
   }
   table.greyGridTable td, table.greyGridTable th {
 	border: 1px solid #6B6B6B;
@@ -54,6 +56,46 @@ table.greyGridTable {
   table.greyGridTable tfoot td {
 	font-size: 14px;
   }
+
+  .table-responsive {
+	overflow-x: auto;
+	align-self: center;
+  }
+  
+  @media (max-width: 767px) {
+	.table-responsive {
+	  width: 100%;
+	  margin-bottom: 15px;
+	  overflow-y: hidden;
+	  -ms-overflow-style: -ms-autohiding-scrollbar;
+	  border: 1px solid #ddd;
+	}
+	.table-responsive > .greyGridTable {
+	  margin-bottom: 0;
+	}
+	.table-responsive > .greyGridTable > thead > tr > th,
+	.table-responsive > .greyGridTable > tbody > tr > th,
+	.table-responsive > .greyGridTable > tfoot > tr > th,
+	.table-responsive > .greyGridTable > thead > tr > td,
+	.table-responsive > .greyGridTable > tbody > tr > td,
+	.table-responsive > .greyGridTable > tfoot > tr > td {
+	  white-space:break-spaces;
+	}
+	.table-responsive > .greyGridTable > tbody > tr > td {
+	  display: list-item;
+	  padding: 2px;
+		
+	  text-align: center;
+	  border-bottom: 1px solid #ddd;
+	}
+	.table-responsive > .greyGridTable > tbody > tr > td:last-child {
+	  border-bottom: 0;
+	}
+	.table-responsive > .greyGridTable > tbody > tr:nth-child(even) > td {
+	  background-color: #f5f5f5;
+	}
+  }
+  
 
 
 

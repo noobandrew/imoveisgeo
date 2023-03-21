@@ -17,9 +17,9 @@ if((!isset ($_SESSION['codigo']) == true))
 
   $result = $conexao->query($sql);
 
-  print_r($result);
-  $user_data = mysqli_fetch_assoc($result);
-  print_r($user_data);
+  // print_r($result);
+  // $user_data = mysqli_fetch_assoc($result);
+  // print_r($user_data);
 ?>
 
 
@@ -66,7 +66,6 @@ if((!isset ($_SESSION['codigo']) == true))
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="assets/css/theme.css" rel="stylesheet" />
 
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
@@ -124,56 +123,41 @@ if((!isset ($_SESSION['codigo']) == true))
 
   
 
-
+<div class = "table-responsive">
         <table class="greyGridTable">
+  <thead>
+    <tr>
+    </tr>
+  </thead>
+  <tbody>
 
-<tfoot>
+<?php
 
-</tfoot>
-<tbody>
-<tr>
-<td>Nome da propriedade</td><td><?php echo $user_data['id'] ?></td></tr>
-<tr>
-<td>cell1_2</td><td>cell2_2</td></tr>
-<tr>
-<td>cell1_3</td><td>cell2_3</td></tr>
-<tr>
-<td>cell1_4</td><td>cell2_4</td></tr>
-</tbody>
-</tr>
-</table>
-
-<div class="panel dv-expandable">
-        <div style=text-align:center;>
-            <strong>Parcela Y</strong>
-        </div>
-
-
-
-
-        <table class="greyGridTable">
-
-<tfoot>
-
-</tfoot>
-<tbody>
-<tr>
-<td>cell1_1</td><td>cell2_1</td></tr>
-<tr>
-<td>cell1_2</td><td>cell2_2</td></tr>
-<tr>
-<td>cell1_3</td><td>cell2_3</td></tr>
-<tr>
-<td>cell1_4</td><td>cell2_4</td></tr>
-</tbody>
-</tr>
-</table>
+	while($user_data= mysqli_fetch_assoc($result))
+	{
+		echo "<tr>";
+		echo "<td>". "<strong>Denominação: ".$user_data['nome_area']."</strong"."</td>";
+		echo "<td>". "<strong>Área: </strong>".$user_data['areaha']."</td>";
+		echo "<td>". "<strong>Código Parcela: </strong>".$user_data['parcela_co']."</td>";
+		echo "<td>". "<strong> Código Imóvel (SNCR/INCRA): </strong>".$user_data['codigo_imo']."</td>";
+		echo "<td>".$user_data['status']."</td>";
+		echo "<td>".$user_data['muni']."</td>";
+		echo "<td>".$user_data['projeto']."</td>";
+		echo "<td>"."<a href="."\"".$user_data['documentos']."\">"."Clique aqui"."</a></td>";
+		echo "<td>"."<a href="."\"".$user_data['sigef']."\">"."Clique aqui"."</a></td>";
+		echo "<td>".rtrim(trim($user_data['pro1nome'].";".$user_data['pro2nome'].";".$user_data['pro3nome'].";".$user_data['pro4nome'].";".$user_data['pro5nome']), ';')."<hr>"."</td>";
+		echo "<tr>"."<td colspan="."10".">"."<iframe src="."\"".$user_data['mapa']."\""." width="."90%"." height="."300"." frameborder="."0"." style="."border:0"." allowfullscreen></iframe>"."</td>"."</tr>";
+	}
+	echo "</tbody>";
+	echo "</table>";
+	echo "</div>";
+	?>
 
 
-<div class="responsive-iframe-container">
-    <iframe src="https://www.google.com/maps/d/embed?mid=1nNkOdTPsHheRg5b_JShG3bTGISSRhJY&ehbc=2E312F" frameborder="0" allowfullscreen></iframe>
+
+
+
 </div>
-
         
 
 
@@ -186,7 +170,6 @@ if((!isset ($_SESSION['codigo']) == true))
 
 
 <script src="//unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
-<script src="src/leaflet-geojson-selector.js"></script>
 
 
 
