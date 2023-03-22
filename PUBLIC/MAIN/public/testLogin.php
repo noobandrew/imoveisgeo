@@ -7,9 +7,9 @@ session_start();
     {
         // foi enviado o formulário
         include_once('conexao.php');
-        $codigo = $_POST['codigo'];
 
-       // print_r('Codigo: ' .  $codigo);
+        $codigo = $_POST['codigo'];
+        
 
         $sql = "SELECT * FROM `USUARIOS` WHERE pro1code = '$codigo' OR pro2code = '$codigo' OR pro3code = '$codigo' OR pro4code = '$codigo' OR pro5code = '$codigo'";
         $result = $conexao->query($sql);

@@ -1,54 +1,68 @@
-
-$dbHost = 'localhost';
-$dbUsername = 'master';
-$dbPassword = 'topogeo1718';
-$dbName = 'server';
-
-
-$mysqli = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
-
-if ($mysqli->connect_errno) {
-    echo "Erro";
-} else {
-    echo "Conectado";
-}
-
-
-
-
-
-
-
-$sql = "SELECT * FROM `USUARIOS` WHERE pro1code = '$login' OR pro2code = '$login' OR pro3code = '$login' OR pro4code = '$login' OR pro5code = '$login'";
-$result = $mysqli->query($sql);
-
-
-
-
-if($result->num_rows > 0) {
-	$row = $result->fetch_assoc();
-
-    if ($_POST['codigo'] == $pro1code) {
-        $_SESSION['nome'] = $pro1nome;
-        header('location:mainpage_NEW.php');
-    } elseif ($_POST['codigo'] == $pro2code) {
-        $_SESSION['nome'] = $pro2nome;
-        header('location:mainpage_NEW.php');
-    } elseif ($_POST['codigo'] == $pro3code) {
-        $_SESSION['nome'] = $pro3nome;
-        header('location:mainpage_NEW.php');
-    } elseif ($_POST['codigo'] == $pro4code) {
-        $_SESSION['nome'] = $pro4nome;
-        header('location:mainpage_NEW.php');
-    } elseif ($_POST['codigo'] == $pro5code) {
-        $_SESSION['nome'] = $pro5nome;
-        header('location:mainpage_NEW.php');
+function substituirDigitos($str) {
+    $caracteres = array("Q", "M", "W", "N", "R", "B", "T", "V", "P", "C");
+    for ($i = 0; $i < 10; $i++) {
+        $str = str_replace(strval($i), $caracteres[$i], $str);
     }
-} else {
-    unset($_SESSION['codigo']);
-    header('location:index.php');
+    return $str;
 }
 
+
+$_SESSION['codigo'] = substituirDigitos($_SESSION['codigo']);
+echo $_SESSION['codigo']; // imprime 
+
+
+
+
+
+52053059087
+
+
+
+0 por Q, 1 por M, 2 por W, 3 por N, 4 por R, 5 por B, 6 por T, 7 por V, 8 por P, 9 por C
+
+
+
+
+
+
+
+<?php
+
+function substituirCaracteres($string) {
+    $mapaSubstituicao = array(
+        '0' => 'Q',
+        '1' => 'M',
+        '2' => 'W',
+        '3' => 'N',
+        '4' => 'R',
+        '5' => 'B',
+        '6' => 'T',
+        '7' => 'V',
+        '8' => 'P',
+        '9' => 'C'
+    );
+
+    $novaString = '';
+    $tamanhoString = strlen($string);
+
+    for ($i = 0; $i < $tamanhoString; $i++) {
+        $caracterAtual = $string[$i];
+        if (array_key_exists($caracterAtual, $mapaSubstituicao)) {
+            $novaString .= $mapaSubstituicao[$caracterAtual];
+        } else {
+            $novaString .= $caracterAtual;
+        }
+    }
+
+    return $novaString;
+}
+
+// Exemplo de uso:
+$stringOriginal = '1234567890';
+$stringSubstituida = substituirCaracteres($stringOriginal);
+echo "String original: " . $stringOriginal . "<br>";
+echo "String substituída: " . $stringSubstituida;
+?>
 
 
 

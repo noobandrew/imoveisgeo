@@ -2,7 +2,6 @@
 
 session_start();
 include_once('conexao.php');
-print_r($_SESSION);
 
 if((!isset ($_SESSION['codigo']) == true))
 {
@@ -11,7 +10,6 @@ if((!isset ($_SESSION['codigo']) == true))
 }
 
   $logado = $_SESSION['codigo'];
-  print_r($logado);
 
   $sql = "SELECT * FROM `USUARIOS` WHERE pro1code = '$logado' OR pro2code = '$logado' OR pro3code = '$logado' OR pro4code = '$logado' OR pro5code = '$logado'";
 
@@ -21,9 +19,6 @@ if((!isset ($_SESSION['codigo']) == true))
   // $user_data = mysqli_fetch_assoc($result);
   // print_r($user_data);
 ?>
-
-
-
 
 
 <!DOCTYPE html> 
@@ -72,10 +67,7 @@ if((!isset ($_SESSION['codigo']) == true))
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
-
-
 <body>
-
 
 
 <div class="nav">
@@ -105,49 +97,39 @@ if((!isset ($_SESSION['codigo']) == true))
 		  <a href="https://www.topographia.com.br/politica-privacidade" target="_blank"  class ="xii">Política de Privacidade</a>
 
 		</div>
-	  </div>
-	
+</div>
 
-
-<div class="container-xl mt-4">
-        <div class="row-fluid">
-
-
-    
-    <div class="panel dv-expandable">
-        <div style=text-align:center;>
-            <strong>Bem-vindo, <?php echo $logado; ?></strong>
+        <div class="nova">
+            <strong>Bem-vindo, cliente TOPOGRAPHIA</strong>
         </div>
-        <div>
 
 
-  
-
-<div class = "table-responsive">
-        <table class="greyGridTable">
-  <thead>
-    <tr>
-    </tr>
-  </thead>
-  <tbody>
 
 <?php
 
 	while($user_data= mysqli_fetch_assoc($result))
 	{
+		echo "<div"." class="."\"". "table-responsive" . "\"" .">";
+		echo "<table class="."\"". "greyGridTable" . "\"" .">";
+		echo "<tbody>";
 		echo "<tr>";
 		echo "<td>". "<strong>Denominação: ".$user_data['nome_area']."</strong"."</td>";
-		echo "<td>". "<strong>Área: </strong>".$user_data['areaha']."</td>";
+		echo "<td>". "<strong>Área: </strong>".$user_data['areaha']."ha"."</td>";
 		echo "<td>". "<strong>Código Parcela: </strong>".$user_data['parcela_co']."</td>";
 		echo "<td>". "<strong> Código Imóvel (SNCR/INCRA): </strong>".$user_data['codigo_imo']."</td>";
-		echo "<td>".$user_data['status']."</td>";
-		echo "<td>".$user_data['muni']."</td>";
-		echo "<td>".$user_data['projeto']."</td>";
-		echo "<td>"."<a href="."\"".$user_data['documentos']."\">"."Clique aqui"."</a></td>";
-		echo "<td>"."<a href="."\"".$user_data['sigef']."\">"."Clique aqui"."</a></td>";
-		echo "<td>".rtrim(trim($user_data['pro1nome'].";".$user_data['pro2nome'].";".$user_data['pro3nome'].";".$user_data['pro4nome'].";".$user_data['pro5nome']), ';')."<hr>"."</td>";
+		echo "<td>". "<strong> Status: </strong>".$user_data['status']."</td>";
+		echo "<td>". "<strong> Município: </strong>".$user_data['muni']."</td>";
+		echo "<td>". "<strong> Projeto: </strong>".$user_data['projeto']."</td>";
+		echo "<td>"."<a href="."\"".$user_data['documentos']."\">"."<strong>DOCUMENTOS NO DRIVE</strong>: Clique aqui"."</a></td>";
+		echo "<td>"."<a href="."\""."https://sigef.incra.gov.br/geo/parcela/detalhe/".$user_data['parcela_co']."\">"."<strong>LINK SIGEF</strong>: Clique aqui"."</a></td>";
+		echo "<td>"."<strong>Detentores: </strong>".rtrim(trim($user_data['pro1nome'].";".$user_data['pro2nome'].";".$user_data['pro3nome'].";".$user_data['pro4nome'].";".$user_data['pro5nome']), ';')."</td>";
 		echo "<tr>"."<td colspan="."10".">"."<iframe src="."\"".$user_data['mapa']."\""." width="."90%"." height="."300"." frameborder="."0"." style="."border:0"." allowfullscreen></iframe>"."</td>"."</tr>";
+		echo "<br>";
+
+	
 	}
+
+	echo "<br>";
 	echo "</tbody>";
 	echo "</table>";
 	echo "</div>";
@@ -161,20 +143,7 @@ if((!isset ($_SESSION['codigo']) == true))
         
 
 
-
-
-
-
-
-       
-
-
 <script src="//unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
-
-
-
-
-
 
 
 </body>
