@@ -13,59 +13,52 @@ body{
 
 }
 *::-webkit-scrollbar-thumb {
-    background-color: #e97f1c;
+    background-color: #1cc0e9;
     border-radius: 10px;
     border: 3px double #ffffff;
   }
 
-table.greyGridTable {
-	border: 9px solid #FFFFFF;
-	background-color: #EEEEEE;
-	width: 100%;
+  .greyGridTable {
+	background-color: rgb(239, 248, 248);
+	border-collapse: collapse; 
 	text-align: center;
-	padding: auto;
-	-webkit-overflow-scrolling: touch;
-  }
-  table.greyGridTable td, table.greyGridTable th {
-	border: 1px solid #6B6B6B;
-	padding: 3px 3px;
-  }
-  table.greyGridTable tbody td {
-	font-size: 13px;
-	color: #333333;
-  }
-  table.greyGridTable td:nth-child(even) {
-	background: #D6D6D6;
-  }
-  table.greyGridTable thead {
-	background: #FFFFFF;
-	border-bottom: 4px solid #333333;
-  }
-  table.greyGridTable thead th {
-	font-size: 15px;
-	font-weight: bold;
-	color: #333333;
-	text-align: center;
-	border-left: 2px solid #333333;
-  }
-  table.greyGridTable thead th:first-child {
-	border-left: none;
-  }
-  
-  table.greyGridTable tfoot {
-	font-size: 14px;
-	font-weight: bold;
-	color: #333333;
-	border-top: 4px solid #333333;
-  }
-  table.greyGridTable tfoot td {
-	font-size: 14px;
-  }
+	  padding: auto;
+	  width: 80%;
+	  margin-left:10%; 
+      margin-right:10%;
+	-webkit-box-shadow: 0px 10px 13px -7px #000000, 1px 5px 8px 5px rgba(0,0,0,0.24); 
+box-shadow: 0px 10px 13px -7px #000000, 1px 5px 8px 5px rgba(0,0,0,0.24);
+	
 
-  .table-responsive {
-	overflow-x: scroll;
+
+  
+	}
+
+	.greyGridTable tbody { 
 	align-self: center;
-  }
+	
+
+	}
+
+  .greyGridTable th { 
+	background-color: goldenrod;
+	color: white; 
+	
+	}
+  .greyGridTable td, 
+  .greyGridTable th { 
+	padding: 15px;
+	border: 0.5px solid rgb(173, 181, 182); 
+	
+	
+
+	}
+	.table-responsive {
+	  overflow-x: scroll;
+	  align-self: center;
+
+
+	}
   
   @media (max-width: 767px) {
 	.table-responsive {
@@ -73,6 +66,9 @@ table.greyGridTable {
 	  height: 80%;
 	  margin-bottom: 15px;
 	  border: 1px solid #ddd;
+	  padding-left: 0%;
+	  padding-right: 0%;
+	  
 
 	  
 	}
@@ -88,21 +84,37 @@ table.greyGridTable {
 	  white-space:break-spaces;
 	}
 	.table-responsive > .greyGridTable > tbody > tr > td {
-	  display: list-item;
-	  padding: 5px;
+	  display:inline-flexbox;
+	  padding: 2px;
+	  
 		
 	  text-align: center;
-	  border-bottom: 1px solid #ddd;
+	  border-bottom: 1px solid #3997af;
+	  
+	  
 	}
+	
+
+
 	.table-responsive > .greyGridTable > tbody > tr > td:last-child {
 	  border-bottom: 0;
+
 	}
 	.table-responsive > .greyGridTable > tbody > tr:nth-child(even) > td {
-	  background-color: #f5f5f5;
+
 	}
   }
   
+.backgroundtable {
+	background-color: #61c4eba9;
+text-align: left;
 
+
+
+
+
+
+}
 
 
 

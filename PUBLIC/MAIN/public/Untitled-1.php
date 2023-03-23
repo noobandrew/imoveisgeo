@@ -66,3 +66,132 @@ echo "String substituída: " . $stringSubstituida;
 
 
 
+
+
+
+
+
+
+
+.greyGridTable {
+  text-align: left;
+  background-color: Honeydew;
+  border-collapse: collapse; 
+  text-align: center;
+	padding: auto;
+    width: 100%;
+
+  }
+.greyGridTable th { 
+  background-color: goldenrod;
+  color: white; 
+  }
+.greyGridTable td, 
+.greyGridTable th { 
+  padding: 10px;
+  border: 1px solid forestgreen; 
+  }
+  .table-responsive {
+	overflow-x: scroll;
+	align-self: center;
+  }
+
+  
+
+
+
+
+
+
+  table.greyGridTable {
+	border: 9px solid #FFFFFF;
+	background-color: #EEEEEE;
+	width: 100%;
+	text-align: center;
+	padding: auto;
+	-webkit-overflow-scrolling: touch;
+  }
+  table.greyGridTable td, table.greyGridTable th {
+	border: 1px solid #6B6B6B;
+	padding: 3px 3px;
+  }
+  table.greyGridTable tbody td {
+	font-size: 13px;
+	color: #333333;
+  }
+  table.greyGridTable td:nth-child(even) {
+	background: #D6D6D6;
+  }
+  table.greyGridTable thead {
+	background: #FFFFFF;
+	border-bottom: 4px solid #333333;
+  }
+  table.greyGridTable thead th {
+	font-size: 15px;
+	font-weight: bold;
+	color: #333333;
+	text-align: center;
+	border-left: 2px solid #333333;
+  }
+  table.greyGridTable thead th:first-child {
+	border-left: none;
+  }
+  
+  table.greyGridTable tfoot {
+	font-size: 14px;
+	font-weight: bold;
+	color: #333333;
+	border-top: 4px solid #333333;
+  }
+  table.greyGridTable tfoot td {
+	font-size: 14px;
+  }
+
+  .table-responsive {
+	overflow-x: scroll;
+	align-self: center;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  echo "<td>". "<strong>Denominação: ".$user_data['nome_area']."</strong"."</td>";
+		echo "<td>". "<strong>Área: </strong>".$user_data['areaha']."ha"."</td>";
+		echo "<td>". "<strong>Código Parcela: </strong>".$user_data['parcela_co']."</td>";
+		echo "<td>". "<strong> Código Imóvel (SNCR/INCRA): </strong>".$user_data['codigo_imo']."</td>";
+		echo "<td>". "<strong> Status: </strong>".$user_data['status']."</td>";
+		echo "<td>". "<strong> Município: </strong>".$user_data['muni']."</td>";
+		echo "<td>". "<strong> Projeto: </strong>".$user_data['projeto']."</td>";
+		echo "<td>"."<a href="."\"".$user_data['documentos']."\">"."<strong>DOCUMENTOS NO DRIVE</strong>: Clique aqui"."</a></td>";
+		echo "<td>"."<a href="."\""."https://sigef.incra.gov.br/geo/parcela/detalhe/".$user_data['parcela_co']."\">"."<strong>LINK SIGEF</strong>: Clique aqui"."</a></td>";
+		echo "<td>"."<strong>Detentores: </strong>".rtrim(trim($user_data['pro1nome'].";".$user_data['pro2nome'].";".$user_data['pro3nome'].";".$user_data['pro4nome'].";".$user_data['pro5nome']), ';')."</td>";
+		echo "<tr>"."<td colspan="."10".">"."<iframe src="."\"".$user_data['mapa']."\""." width="."90%"." height="."300"." frameborder="."0"." style="."border:0"." allowfullscreen></iframe>"."</td>"."</tr>";
+		echo "<br>";
+
+
+
+
+
+
+
+		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">"."<strong>Denominação"."</strong"."</td>". "<td><h3>".$user_data['nome_area']."</h3></tr>";
