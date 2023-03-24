@@ -13,7 +13,7 @@ body{
 
 }
 *::-webkit-scrollbar-thumb {
-    background-color: #1cc0e9;
+    background-color: #1ce9ac;
     border-radius: 10px;
     border: 3px double #ffffff;
   }
@@ -22,12 +22,17 @@ body{
 	background-color: rgb(239, 248, 248);
 	border-collapse: collapse; 
 	text-align: center;
-	  padding: auto;
-	  width: 80%;
-	  margin-left:10%; 
-      margin-right:10%;
-	-webkit-box-shadow: 0px 10px 13px -7px #000000, 1px 5px 8px 5px rgba(0,0,0,0.24); 
-box-shadow: 0px 10px 13px -7px #000000, 1px 5px 8px 5px rgba(0,0,0,0.24);
+	padding: auto;
+	width: 60%;
+	margin-left:20%; 
+    margin-right:20%;
+	-webkit-box-shadow: 10px 10px 13px -7px #000000, 1px 5px 8px 5px rgba(0,0,0,0.24); 
+	box-shadow: 0px 10px 13px -7px #000000, 1px 5px 8px 5px rgba(0,0,0,0.24);
+	-webkit-border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+
+
 	
 
 
@@ -40,6 +45,11 @@ box-shadow: 0px 10px 13px -7px #000000, 1px 5px 8px 5px rgba(0,0,0,0.24);
 
 	}
 
+	.greyGridTable td{
+
+		border-bottom: 0.1px solid #2b8147;
+	}
+
   .greyGridTable th { 
 	background-color: goldenrod;
 	color: white; 
@@ -48,30 +58,61 @@ box-shadow: 0px 10px 13px -7px #000000, 1px 5px 8px 5px rgba(0,0,0,0.24);
   .greyGridTable td, 
   .greyGridTable th { 
 	padding: 15px;
-	border: 0.5px solid rgb(173, 181, 182); 
+
 	
 	
 
 	}
 	.table-responsive {
-	  overflow-x: scroll;
+	  overflow-x: hidden;
 	  align-self: center;
 
 
 	}
+
+
+	.table-rightcolumn {
+		text-align: left;
+		
+
+
+	}
+
+	.table-rightcolumn:hover{
+			text-decoration: none;
+			transition: .4s;
+			background-color: #acacac83;
+	}
+
+
+	
   
   @media (max-width: 767px) {
 	.table-responsive {
 	  width: 100%;
 	  height: 80%;
 	  margin-bottom: 15px;
-	  border: 1px solid #ddd;
 	  padding-left: 0%;
-	  padding-right: 0%;
+	  padding-right: 3%;
+
 	  
 
 	  
 	}
+
+
+	.greyGridTable{
+		border-collapse: collapse; 
+		  padding: auto;
+		  width: 89%;
+		  margin-left:7%;
+		  margin-right:10%;
+
+	}
+
+
+
+
 	.table-responsive > .greyGridTable {
 	  margin-bottom: 0;
 	}
@@ -85,11 +126,11 @@ box-shadow: 0px 10px 13px -7px #000000, 1px 5px 8px 5px rgba(0,0,0,0.24);
 	}
 	.table-responsive > .greyGridTable > tbody > tr > td {
 	  display:inline-flexbox;
-	  padding: 2px;
+	  padding: 3px;
 	  
 		
-	  text-align: center;
-	  border-bottom: 1px solid #3997af;
+	  text-align: left;
+	  border-bottom: 0.5px solid #3997af;
 	  
 	  
 	}
@@ -97,23 +138,23 @@ box-shadow: 0px 10px 13px -7px #000000, 1px 5px 8px 5px rgba(0,0,0,0.24);
 
 
 	.table-responsive > .greyGridTable > tbody > tr > td:last-child {
-	  border-bottom: 0;
+	  border-bottom: 3;
 
 	}
-	.table-responsive > .greyGridTable > tbody > tr:nth-child(even) > td {
 
-	}
   }
   
 .backgroundtable {
-	background-color: #61c4eba9;
+	background-color: #9bc3daa9;
 text-align: left;
 
+}
 
 
-
-
-
+.backgroundtable:hover{
+	background-color: rgba(31, 162, 185, 0.555);
+	text-decoration: none;
+	transition: .3s;
 }
 
 
@@ -244,6 +285,8 @@ button[disabled] {
 
 .nav > .nav-links > a:hover {
   background-color: rgba(0, 0, 0, 0.3);
+	transform: scale(1.1);
+
 }
 
 .nav > #nav-check {
@@ -316,11 +359,16 @@ button[disabled] {
 }
 
 .logo-image{
-	width: 46px;
-	height: 46px;
-	border-radius: 50%;
+	border-radius: 10px;
 	overflow: hidden;
-	margin-top: -6px;
+	margin-top: -3px;
+	margin-bottom: 2px;
+}
+.logo-image:hover{
+
+	transition: .2s;
+	transform: scale(1.1);
+
 }
 
 
@@ -510,6 +558,7 @@ form{
 	font-size: 0.9rem;
 	transition: .3s;
 	padding: 0.5rem 0.7rem;
+
 
 
 	

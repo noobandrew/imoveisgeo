@@ -11,7 +11,7 @@ if((!isset ($_SESSION['codigo']) == true))
 
   $logado = $_SESSION['codigo'];
 
-  $sql = "SELECT * FROM `USUARIOS` WHERE pro1code = '$logado' OR pro2code = '$logado' OR pro3code = '$logado' OR pro4code = '$logado' OR pro5code = '$logado'";
+  $sql = "SELECT * FROM `usuarios` WHERE pro1code = '$logado' OR pro2code = '$logado' OR pro3code = '$logado' OR pro4code = '$logado' OR pro5code = '$logado'";
 
   $result = $conexao->query($sql);
 
@@ -71,7 +71,7 @@ if((!isset ($_SESSION['codigo']) == true))
 
 
 <div class="nav">
-<img src="img/logo.png" style= width:80px;height:50px;>
+<a href="logout.php"><img class="logo-image" src="img/logo.png" style= width:70px;height:45px;></a>
 
 		<input type="checkbox" id="nav-check">
 		<div class="nav-header">
@@ -86,18 +86,18 @@ if((!isset ($_SESSION['codigo']) == true))
 		
 		<div class="nav-links">
 
-		  <a href="https://www.topographia.com.br/" target="_blank"  class ="xii">Home</a>
-		  <a href="https://www.topographia.com.br/nossa-empresa" target="_blank"  class ="xii">Empresa</a>
-		  <a href="https://www.topographia.com.br/servicos" target="_blank"  class ="xii">Serviços</a>
-		  <a href="https://www.topographia.com.br/clientes" target="_blank"  class ="xii">Clientes</a>
-		  <a href="https://www.topographia.com.br/blog" target="_blank"  class ="xii">Blog</a>
-		  <a href="https://www.topographia.com.br/#orcamento" target="_blank"  class ="xii">Orçamento</a>
+		  <a href="https://www.topographia.com.br" target="_blank"  class ="xii">Nossa Homepage</a>
 		  <a href="https://www.topographia.com.br/informacoes" target="_blank"  class ="xii">Informações</a>
 		  <a href="https://www.topographia.com.br/contato" target="_blank"  class ="xii">Contato</a>
 		  <a href="https://www.topographia.com.br/politica-privacidade" target="_blank"  class ="xii">Política de Privacidade</a>
+		  <a href="logout.php" target="_self"  class ="xii"><h4>Logout (Sair)</h4></a>
+
 
 		</div>
 </div>
+
+<br>
+<br>
 
 
 <?php
@@ -107,17 +107,17 @@ if((!isset ($_SESSION['codigo']) == true))
 		echo "<div"." class="."\"". "table-responsive" . "\"" .">";
 		echo "<table class="."\"". "greyGridTable" . "\"" .">";
 		echo "<tbody>";
-		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">"."<strong>Denominação"."</strong"."</td>". "<td><h4>".$user_data['nome_area']."</h4></tr>";
-		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong>Área</strong>"."</td>"."<td>".$user_data['areaha']."ha"."</td>"."</tr>";
-		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong>Código Parcela</strong>"."</td>"."<td>".$user_data['parcela_co']."</td>"."</tr>";
-		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong> Código Imóvel (SNCR/INCRA)</strong>"."</td>"."<td>".$user_data['codigo_imo']."</td>"."</tr>";
-		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong> Status</strong>"."</td>"."<td>".$user_data['status']."</td>"."</tr>";
-		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong> Município</strong>"."</td>"."<td>".$user_data['muni']."</td>"."</tr>";
-		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong> Projeto</strong>"."</td>"."<td>".$user_data['projeto']."</td>"."</tr>";
-		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">"."<strong>DOCUMENTOS NO DRIVE</strong>"."</td>"."<td>"."<a href="."\"".$user_data['documentos']."\">"."Clique aqui"."</a></td>";
-		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">"."<strong>"."LINK SIGEF"."</strong>"."</td>"."<td>"."<a href="."\""."https://sigef.incra.gov.br/geo/parcela/detalhe/".$user_data['parcela_co']."\">"."Clique aqui"."</a></td>"."</tr>";
-		echo "<td class ="."\"". "backgroundtable" . "\"" .">"."<strong>Detentores: </strong>"."</td>"."<td>".rtrim(trim($user_data['pro1nome'].";".$user_data['pro2nome'].";".$user_data['pro3nome'].";".$user_data['pro4nome'].";".$user_data['pro5nome']), ';')."</td>";
-		echo "<tr>"."<td colspan="."10".">"."<iframe src="."\"".$user_data['mapa']."\""." width="."90%"." height="."300"." frameborder="."0"." style="."border:0"." allowfullscreen></iframe>"."</td>"."</tr>";
+		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">"."<strong>Denominação"."</strong"."</td>". "<td class ="."\"". "table-rightcolumn" . "\"" ."><h4>".$user_data['nome_area']."</h4></tr>";
+		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong>Área</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">".$user_data['areaha']."ha"."</td>"."</tr>";
+		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong>Código Parcela</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">".$user_data['parcela_co']."</td>"."</tr>";
+		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong> Código Imóvel (SNCR/INCRA)</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">".$user_data['codigo_imo']."</td>"."</tr>";
+		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong> Status</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">".$user_data['status']."</td>"."</tr>";
+		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong> Município</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">".$user_data['muni']."</td>"."</tr>";
+		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong> Projeto</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">".$user_data['projeto']."</td>"."</tr>";
+		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">"."<strong>DOCUMENTOS NO DRIVE</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">"."<a href="."\"".$user_data['documentos']."\">"."Clique aqui"."</a></td>";
+		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">"."<strong>"."LINK SIGEF"."</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">"."<a href="."\""."https://sigef.incra.gov.br/geo/parcela/detalhe/".$user_data['parcela_co']."\">"."Clique aqui"."</a></td>"."</tr>";
+		echo "<td class ="."\"". "backgroundtable" . "\"" .">"."<strong>Detentores </strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">".rtrim(trim($user_data['pro1nome'].";".$user_data['pro2nome'].";".$user_data['pro3nome'].";".$user_data['pro4nome'].";".$user_data['pro5nome']), ';')."</td>";
+		echo "<tr>"."<td colspan="."10".">"."<iframe src="."\"".$user_data['mapa']."\""." width="."100%"." height="."300"." frameborder="."0"." style="."border:0"." allowfullscreen></iframe>"."</td>"."</tr>";
 
 	
 	}
@@ -126,7 +126,6 @@ if((!isset ($_SESSION['codigo']) == true))
 	echo "</table>";
 	echo "</div>";
 	?>
-
 
 
 

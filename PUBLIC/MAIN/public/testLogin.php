@@ -11,9 +11,8 @@ session_start();
         $codigo = $_POST['codigo'];
         
 
-        $sql = "SELECT * FROM `USUARIOS` WHERE pro1code = '$codigo' OR pro2code = '$codigo' OR pro3code = '$codigo' OR pro4code = '$codigo' OR pro5code = '$codigo'";
+        $sql = "SELECT * FROM `usuarios` WHERE pro1code = '$codigo' OR pro2code = '$codigo' OR pro3code = '$codigo' OR pro4code = '$codigo' OR pro5code = '$codigo'";
         $result = $conexao->query($sql);
-
 
         if(mysqli_num_rows($result) < 1) 
         {
