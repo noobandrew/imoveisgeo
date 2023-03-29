@@ -195,3 +195,16 @@ echo "String substituída: " . $stringSubstituida;
 
 
 		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">"."<strong>Denominação"."</strong"."</td>". "<td><h3>".$user_data['nome_area']."</h3></tr>";
+
+
+
+
+
+
+
+
+
+
+
+    background: rgb(255,255,255);
+background: linear-gradient(0deg, rgba(255,255,255,0.9332107843137255) 0%, rgba(222,147,34,1) 100%, rgba(255,255,255,1) 100%);

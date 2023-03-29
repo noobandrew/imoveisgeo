@@ -71,12 +71,8 @@
 		<div class="nav-links">
 
 		  <a href="https://www.topographia.com.br/" target="_blank"  class ="xii">Home</a>
-		  <a href="https://www.topographia.com.br/nossa-empresa" target="_blank"  class ="xii">Empresa</a>
 		  <a href="https://www.topographia.com.br/servicos" target="_blank"  class ="xii">Serviços</a>
-		  <a href="https://www.topographia.com.br/clientes" target="_blank"  class ="xii">Clientes</a>
-		  <a href="https://www.topographia.com.br/blog" target="_blank"  class ="xii">Blog</a>
 		  <a href="https://www.topographia.com.br/#orcamento" target="_blank"  class ="xii">Orçamento</a>
-		  <a href="https://www.topographia.com.br/informacoes" target="_blank"  class ="xii">Informações</a>
 		  <a href="https://www.topographia.com.br/contato" target="_blank"  class ="xii">Contato</a>
 		  <a href="https://www.topographia.com.br/politica-privacidade" target="_blank"  class ="xii">Política de Privacidade</a>
 
@@ -88,19 +84,19 @@
 		</div>
 		<div class="login-content">
 			<form action="testLogin.php" method="POST">
-				<img src="img/avatar.svg"><br><br><br>
+				<img src="img/avatar.svg" class="logologin"><br><br><br>
            		<div class="input-div one">
            		   <div class="i">
            		   		<i class="fas fa-user"></i>
            		   </div>
            		   <div class="div">
-           		   		<input type="text" placeholder="Insira seu código TOPOGRAPHIA" name="codigo" id="codigo" >
+           		   		<input type="text" class="placeholder" placeholder="Insira seu código TOPOGRAPHIA" name="codigo" id="codigo" >
            		   </div>
             	</div>
 				<div class="button">
 				<input type="submit">
 				</div>
-            	<a href="." class ="xii" onclick="window.location='mailto:andrewhammelcontato@gmail.com'; return false;" class="login-problem">Problemas com o Login? Envie um e-mail</a>
+            	<a href="." class="login-problem"  onclick="window.location='mailto:andrewhammelcontato@gmail.com'; return false;" >Problemas com o Login? Entre em contato</a>
 				</div>
             </form>
         </div>

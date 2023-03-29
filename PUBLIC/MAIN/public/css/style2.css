@@ -58,10 +58,10 @@ body{
 
 
   *::-webkit-scrollbar {
-	width: 3px;
+	width: 30px;
 	height: 5px;
 scroll-margin-top: 10px;
-scroll-margin-left: 10px;
+position:-webkit-sticky;
 
   }
 
@@ -81,20 +81,16 @@ scroll-margin-left: 10px;
 	-webkit-border-radius: 10px 10px 10px 10px;
 	-moz-border-radius: 10px 10px 10px 10px;
 	border-radius: 10px 10px 10px 10px;
-	animation-name: myAnim;
 	opacity: 1;
-	animation: fadeIn 2s ease-in-out forwards;
+	animation: grow 2s ease 1;
 
 	}
-	@keyframes myAnim {
-		0% {
-			transform: scale(0.1);
-		}
-	
-		100% {
-			transform: scale(1);
-		}
+	@keyframes grow {
+
+		from { transform: scale(0.7); }
+		to { transform: scale(1); }
 	}
+
 
 
 
@@ -164,13 +160,9 @@ scroll-margin-left: 10px;
 	  margin-bottom: 15px;
 	  padding-left: 0%;
 	  padding-right: 3%;
-	  
-
-	  
-
-	  
 	}
 
+	
 
 	.greyGridTable{
 		border-collapse: collapse; 
@@ -225,10 +217,6 @@ text-align: left;
 	animation-name: myAnim;
 	opacity: 0;
 	animation: fadeIn 2s ease-in-out forwards;
-
-
-
-
 }
 
 
@@ -256,26 +244,10 @@ text-align: left;
 	padding: 0.5rem 0.7rem;
 }
 
-.login-problem:hover {
-	transform: scale(1.01);
-	transition: .3s;
-letter-spacing: 1px;
-color:#000000
-
+.login-problem > a {
+	color: #666;
 }
-
-.placeholder {
-	color: #999;
-	font-size: 1rem;
-	font-weight: 600;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	margin-bottom: 5px;
-	display: block;
-	cursor:text;
-}
-
-
+	
 
 input {
     border: none;
@@ -284,36 +256,14 @@ input, button {
     padding: 10px;
     margin-bottom: 10px;
     width: -webkit-fill-available;
-	border-radius: 45px;
-	background-color: #f2f2f2;
-	color: #333;
-	font-weight: 600;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	transition: .3s;
-	cursor: pointer
 }
-input {
+button {
     cursor: pointer;
 }
-
-input > span {
-	display: inline-block;
-	transition: .3s;
-}
-
-input:hover {
-	background-color: orange;
-	transform: scale(1.01);
-	transition: .4s;
-letter-spacing: 2px;
-color:#f2f2f2;
-text-emphasis: bold;
-}
-input:active {
+button:active {
     opacity: 0.8;
 }
-input[disabled] {
+button[disabled] {
     opacity: 0.3;
 }
 
@@ -359,6 +309,7 @@ input[disabled] {
 	border-radius: 25px;
 	outline: none;
 	border: none;
+	background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
 	background-size: 200%;
 	font-size: 1.2rem;
 	color: #fff;
@@ -385,11 +336,8 @@ input[disabled] {
 .nav {
   height: 60px;
   width: 100%;
-  background: rgb(255,178,43);
-  background: linear-gradient(190deg, rgba(255, 177, 43, 0.308) 0%, rgba(255,255,255,1) 54%, rgba(255,255,255,1) 100%);
+  background-color: #ffffff;
     position:relative;
-	border-bottom: #555;
-	
 
 
 
@@ -397,7 +345,6 @@ input[disabled] {
 
 .nav > .nav-header {
   display: inline;
-  
 }
 
 .nav > .nav-header > .nav-title {
@@ -418,27 +365,29 @@ input[disabled] {
 .nav > .nav-links {
   display: inline;
   float: right;
-  font-size: 14px;
+  font-size: 10px;
   animation-name: myAnim;
   animation: fadeIn 2s ease-in-out forwards;
-  font-weight: bolder;
 
 
   
 }
 
 .nav > .nav-links > a {
-  display: inline-block;
-  padding: 13px 10px 13px 10px;
-  text-decoration:solid;
-	border-radius: 10px;
-	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	font-size: 18px;
-	font-weight:500;
-	animation-name:fadeOut;
-	animation-duration: 1s;
-	animation-fill-mode: forwards;
-	color: #52462d;
+	display: inline-block;
+	padding: 13px 10px 13px 10px;
+	text-decoration:solid;
+	  border-radius: 10px;
+	  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	  font-size: 18px;
+	  font-weight:500;
+	  animation-name:fadeOut;
+	  animation-duration: 1s;
+	  animation-fill-mode: forwards;
+	  color: #464443;
+	  
+  
+  
 	
 
 
@@ -457,12 +406,12 @@ input[disabled] {
   }
 
 .nav > .nav-links > a:hover {
-  background-color: rgba(255, 166, 0, 0.822);
+	background-color: rgb(241, 166, 26);
 	transform: scale(1.01);
 	transition: .3s;
 letter-spacing: 2px;
-color:#ffffff;
-text-emphasis: bold;
+color:#ffffff
+
 }
 
 .nav > #nav-check {
@@ -470,57 +419,57 @@ text-emphasis: bold;
 }
 
 @media (max-width:600px) {
-  .nav > .nav-btn {
-    display: inline-block;
-    position: absolute;
-    right: 0px;
-    top: 0px;
-  }
-  .nav > .nav-btn > label {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    padding: 13px;
-  }
-  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-  .nav > .nav-btn > label > span {
-    display: block;
-    width: 25px;
-    height: 10px;
-    border-top: 2px solid rgb(227, 140, 27);
-  }
-  .nav > .nav-links {
-    position: absolute;
-    display: block;
-    width: 100%;
-    background-color: rgb(255, 255, 255);
-    height: 0px;
-    transition: all 0.3s ease-in;
-    overflow-y: hidden;
-    top: 50px;
-    left: 0px;
-	font-weight:bold;
-	position: relative;
-	top: 0;
-	left: 0;
-	width: 100%;
-	background-color: #fff;
-	z-index: 999; /* Define a ordem de empilhamento */
-
-  }
-  .nav > .nav-links > a {
-    display: block;
-    width: 100%;
-  }
-  .nav > #nav-check:not(:checked) ~ .nav-links {
-    height: 0px;
-  }
-  .nav > #nav-check:checked ~ .nav-links {
-    height: calc(100vh - 50px);
-    overflow-y: auto;
-  }
+	.nav > .nav-btn {
+		display: inline-block;
+		position: absolute;
+		right: 0px;
+		top: 0px;
+	  }
+	  .nav > .nav-btn > label {
+		display: inline-block;
+		width: 50px;
+		height: 50px;
+		padding: 13px;
+	  }
+	  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+		background-color: rgba(0, 0, 0, 0.3);
+	  }
+	  .nav > .nav-btn > label > span {
+		display: block;
+		width: 25px;
+		height: 10px;
+		border-top: 2px solid rgb(227, 140, 27);
+	  }
+	  .nav > .nav-links {
+		position: absolute;
+		display: block;
+		width: 100%;
+		background-color: rgb(255, 255, 255);
+		height: 0px;
+		transition: all 0.3s ease-in;
+		overflow-y: hidden;
+		top: 50px;
+		left: 0px;
+		font-weight:bold;
+		position: relative;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background-color: #fff;
+		z-index: 999; /* Define a ordem de empilhamento */
+	
+	  }
+	  .nav > .nav-links > a {
+		display: block;
+		width: 100%;
+	  }
+	  .nav > #nav-check:not(:checked) ~ .nav-links {
+		height: 0px;
+	  }
+	  .nav > #nav-check:checked ~ .nav-links {
+		height: calc(100vh - 50px);
+		overflow-y: auto;
+	  }
 }
 
 
@@ -534,61 +483,18 @@ text-emphasis: bold;
 
 .wave{
 	position: fixed;
-	bottom: 2;
+	bottom: 0;
 	left: 0;
 	height: 100%;
 	z-index: -1;
-	opacity: 2;
-	animation-duration: 3s;
-	animation-name: slidein;
-	width: 45%;
-	
-
 }
-
-
-@keyframes slidein {
-	from {
-	  opacity: 50%;
-	}
-  
-	to {
-	  opacity: 100%;
-
-	}
-  }
-
-
-  .logologin{
-	animation: grow 4s ease 1;
-
-
-  }
-
-  @keyframes grow {
-	from {
-		opacity: 50%;
-	  }
-	
-	  to {
-		opacity: 100%;
-  
-	  }
-  }
-
-  .logologin:hover{
-	transition: .2s;
-	transform: scale(1.1);
-  }
-
-
 
 
 
 .logo-image{
 	border-radius: 10px;
 	overflow: hidden;
-	margin-top: -3px;
+	margin-top: 7px;
 	margin-bottom: 2px;
 }
 .logo-image:hover{
@@ -679,7 +585,6 @@ form{
 	top: 0; /* Position the navbar at the top of the page */
 	width: 100%; /* Full width */
 	
-	
   }
   
   /* Links inside the navbar */
@@ -732,7 +637,15 @@ form{
 
 }
 
-
+.input-div:before, .input-div:after{
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	width: 0%;
+	height: 2px;
+	background-color: #38d39f;
+	transition: .4s;
+}
 
 .input-div:before{
 	right: 50%;
@@ -751,6 +664,9 @@ form{
 	font-size: 15px;
 }
 
+.input-div.focus > .i > i{
+	color: #38d39f;
+}
 
 .input-div > div > input{
 	position: absolute;
@@ -762,6 +678,7 @@ form{
 	outline: none;
 	background: none;
 	padding: 0.5rem 0.7rem;
+	font-size: 1.2rem;
 	color: #555;
 	font-family: 'poppins', sans-serif;
 }
@@ -778,15 +695,8 @@ form{
 	font-size: 0.9rem;
 	transition: .3s;
 	padding: 0.5rem 0.7rem;
+	
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -809,6 +719,7 @@ form{
 	padding-bottom: 0%;
 	text-align: center;
 }
+
 
 
 

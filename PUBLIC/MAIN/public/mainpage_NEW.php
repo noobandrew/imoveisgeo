@@ -62,35 +62,50 @@ if((!isset ($_SESSION['codigo']) == true))
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style2.css">
 
 </head>
 <body style="background-image: url('back.jpg');   background-size: cover;">
 
 
-<div class="nav">
-<a href="logout.php"><img class="logo-image" src="img/logo.png" style= width:70px;height:45px;></a>
 
+
+
+</div>
+
+
+<div class="nav">
 		<input type="checkbox" id="nav-check">
 		<div class="nav-header">
+		  <div class="nav-title">
+			<img src="img/bg.svg">
+		  </div>
 		</div>
-		<div class="nav-btn">
+<a href="logout.php"><img class="logo-image" src="img/logo.png" style= width:70px;height:45px;></a>
+
+<div class="nav-btn">
 		  <label for="nav-check">
 			<span></span>
 			<span></span>
 			<span></span>
 		  </label>
 		</div>
+
+
+
 		
 		<div class="nav-links">
+			
+			
 
 		  <a href="https://www.topographia.com.br" target="_blank"  class ="xii">Nossa Homepage</a>
 		  <a href="https://www.topographia.com.br/informacoes" target="_blank"  class ="xii">Informações</a>
 		  <a href="https://www.topographia.com.br/contato" target="_blank"  class ="xii">Contato</a>
 		  <a href="https://www.topographia.com.br/politica-privacidade" target="_blank"  class ="xii">Política de Privacidade</a>
-		  <a href="logout.php" target="_self"  class ="xii"><h4>Logout (Sair)</h4></a>
+		  <a href="logout.php" target="_self"  class ="xii"><h5>Logout (Sair)</h5></a>
 
 
 		</div>
@@ -117,7 +132,7 @@ if((!isset ($_SESSION['codigo']) == true))
 		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">"."<strong>DOCUMENTOS NO DRIVE</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">"."<a href="."\"".$user_data['documentos']."\">"."Clique aqui"."</a></td>";
 		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">"."<strong>"."LINK SIGEF"."</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">"."<a href="."\""."https://sigef.incra.gov.br/geo/parcela/detalhe/".$user_data['parcela_co']."\">"."Clique aqui"."</a></td>"."</tr>";
 		echo "<td class ="."\"". "backgroundtable" . "\"" .">"."<strong>Detentores </strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">".rtrim(trim($user_data['pro1nome'].";".$user_data['pro2nome'].";".$user_data['pro3nome'].";".$user_data['pro4nome'].";".$user_data['pro5nome']), ';')."</td>";
-		echo "<tr>"."<td colspan="."10".">"."<iframe src="."\"".$user_data['mapa']."\""." width="."100%"." height="."300"." frameborder="."0"." style="."border:0"." allowfullscreen></iframe>"."</td>"."</tr>";
+		echo "<tr class ="."\"". "backgroundmap" . "\"" .">"."<td colspan="."10".">"."<iframe src="."\"".$user_data['mapa']."\""." width="."100%"." height="."300"." frameborder="."0"." style="."border:0"." allowfullscreen></iframe>"."</td>"."</tr>";
 
 	
 	}
@@ -135,6 +150,13 @@ if((!isset ($_SESSION['codigo']) == true))
 
 
 <script src="//unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
+
+<script>
+//script para a animação da tabela
+
+
+//=========================================================
+</script>
 
 
 </body>
