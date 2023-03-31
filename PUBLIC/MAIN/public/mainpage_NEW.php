@@ -68,7 +68,7 @@ if((!isset ($_SESSION['codigo']) == true))
 	<link rel="stylesheet" type="text/css" href="css/style2.css">
 
 </head>
-<body style="background-image: url('back.jpg');   background-size: cover;">
+<body>
 
 
 
@@ -100,11 +100,7 @@ if((!isset ($_SESSION['codigo']) == true))
 		<div class="nav-links">
 			
 			
-
 		  <a href="https://www.topographia.com.br" target="_blank"  class ="xii">Nossa Homepage</a>
-		  <a href="https://www.topographia.com.br/informacoes" target="_blank"  class ="xii">Informações</a>
-		  <a href="https://www.topographia.com.br/contato" target="_blank"  class ="xii">Contato</a>
-		  <a href="https://www.topographia.com.br/politica-privacidade" target="_blank"  class ="xii">Política de Privacidade</a>
 		  <a href="logout.php" target="_self"  class ="xii"><h5>Logout (Sair)</h5></a>
 
 
@@ -119,6 +115,7 @@ if((!isset ($_SESSION['codigo']) == true))
 
 	while($user_data= mysqli_fetch_assoc($result))
 	{
+
 		echo "<div"." class="."\"". "table-responsive" . "\"" .">";
 		echo "<table class="."\"". "greyGridTable" . "\"" .">";
 		echo "<tbody>";
@@ -132,8 +129,8 @@ if((!isset ($_SESSION['codigo']) == true))
 		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">"."<strong>DOCUMENTOS NO DRIVE</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">"."<a href="."\"".$user_data['documentos']."\">"."Clique aqui"."</a></td>";
 		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">"."<strong>"."LINK SIGEF"."</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">"."<a href="."\""."https://sigef.incra.gov.br/geo/parcela/detalhe/".$user_data['parcela_co']."\">"."Clique aqui"."</a></td>"."</tr>";
 		echo "<td class ="."\"". "backgroundtable" . "\"" .">"."<strong>Detentores </strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">".rtrim(trim($user_data['pro1nome'].";".$user_data['pro2nome'].";".$user_data['pro3nome'].";".$user_data['pro4nome'].";".$user_data['pro5nome']), ';')."</td>";
-		echo "<tr class ="."\"". "backgroundmap" . "\"" .">"."<td colspan="."10".">"."<iframe src="."\"".$user_data['mapa']."\""." width="."100%"." height="."300"." frameborder="."0"." style="."border:0"." allowfullscreen></iframe>"."</td>"."</tr>";
-
+		echo "<tr>"."<td colspan="."10".">"."<iframe src="."\"".$user_data['mapa']."\""." width="."100%"." height="."300"." frameborder="."0"." style="."border:0"." allowfullscreen></iframe>"."</td>"."</tr>";
+		echo "<br>";
 	
 	}
 

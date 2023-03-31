@@ -7,8 +7,8 @@
 body{
 	font-size: 1rem;
     font-family: "PT Sans", sans-serif;
-    overflow: scroll;
 	margin: 0px;
+background-color: #f3f3f3c9;
 
 
 
@@ -57,13 +57,6 @@ body{
 
 
 
-  *::-webkit-scrollbar {
-	width: 30px;
-	height: 5px;
-scroll-margin-top: 10px;
-position:-webkit-sticky;
-
-  }
 
 
 
@@ -82,13 +75,6 @@ position:-webkit-sticky;
 	-moz-border-radius: 10px 10px 10px 10px;
 	border-radius: 10px 10px 10px 10px;
 	opacity: 1;
-	animation: grow 2s ease 1;
-
-	}
-	@keyframes grow {
-
-		from { transform: scale(0.7); }
-		to { transform: scale(1); }
 	}
 
 
@@ -109,7 +95,11 @@ position:-webkit-sticky;
 	.greyGridTable td{
 
 
-		border-bottom: 0.1px solid #2b8147;
+		border-bottom: 0.1px solid #0a0a0a;
+		border-right: 0.1px solid #313131;
+		border-top: 0.1px solid #363636;
+		border-left: 0.1px solid #363636;
+
 	}
 
 
@@ -119,8 +109,9 @@ position:-webkit-sticky;
   .greyGridTable th { 
 	background-color: goldenrod;
 	color: white; 
-	
 	}
+
+
   .greyGridTable td, 
   .greyGridTable th { 
 	padding: 15px;
@@ -133,21 +124,19 @@ position:-webkit-sticky;
 	  overflow-x: hidden;
 	  align-self: center;
 
-
 	}
 
 
 	.table-rightcolumn {
 		text-align: left;
+		background-color: #fff;
 		
 
 
 	}
 
 	.table-rightcolumn:hover{
-		transform: scale(1.01);
-		transition: .3s;
-			background-color: #acacac83;
+			background-color: #cccccc;
 	}
 
 
@@ -190,11 +179,11 @@ position:-webkit-sticky;
 	}
 	.table-responsive > .greyGridTable > tbody > tr > td {
 	  display:inline-flexbox;
-	  padding: 3px;
-	  
-		
+	  padding: 3px;	
 	  text-align: left;
-	  border-bottom: 0.5px solid #3997af;
+
+	  border-bottom: 0.1px solid #0a0a0a;
+	  border-right: 0.1px solid #0a0a0a;
 	  
 	  
 	}
@@ -209,27 +198,18 @@ position:-webkit-sticky;
   }
   
 .backgroundtable {
-	background-color: #9bc3daa9;
+	background-color: #d6d6d6d8;
 text-align: left;
 
 }
-.backgroundmap {
-	animation-name: myAnim;
-	opacity: 0;
-	animation: fadeIn 2s ease-in-out forwards;
-}
-
-
-
-
 
 
 
 .backgroundtable:hover{
-	background-color: rgba(31, 162, 185, 0.555);
-	text-decoration: none;
-	transform: scale(1.01);
-	transition: .3s;
+	color:#FFF;
+	background-color: #717677fd;
+	text-decoration: none; 
+
 }
 
 

@@ -208,3 +208,11 @@ echo "String substituída: " . $stringSubstituida;
 
     background: rgb(255,255,255);
 background: linear-gradient(0deg, rgba(255,255,255,0.9332107843137255) 0%, rgba(222,147,34,1) 100%, rgba(255,255,255,1) 100%);
+
+
+
+
+echo "<tr class ="."\"". "backgroundmap" . "\"" .">"."<td colspan="."10".">"."<iframe src="."\"".$user_data['mapa']."\""." width="."100%"." height="."300"." frameborder="."0"." style="."border:0"." allowfullscreen></iframe>"."</td>"."</tr>";
+
+
+echo "<iframe src=\"https://www.google.com/maps/d/embed?mid=1nNkOdTPsHheRg5b_JShG3bTGISSRhJY&ehbc=2E312F\" width=\"85%\" height=\"600\" </iframe>";
