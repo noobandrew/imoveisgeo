@@ -14,23 +14,6 @@ background-color: #f3f3f3c9;
 
 }
 
-
-.topo{
-
-	background: rgba(223, 136, 37, 0.9);
-    color: white;
-    font-size: 13px;
-    padding: 8px 10px;
-	margin: 0;
-    border: 0;
-    outline: 0;
-    box-sizing: border-box;
-	display: block;
-	font-family:"PT Sans", sans-serif
-
-}
-
-
 .fa{
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
@@ -129,15 +112,18 @@ background-color: #f3f3f3c9;
 
 	.table-rightcolumn {
 		text-align: left;
-		background-color: #fff;
+		background: rgb(47,47,47);
+		background: linear-gradient(0deg, rgba(236, 234, 234, 0.642) 0%, rgba(255,255,255,1) 54%, rgba(255,255,255,1) 100%);
 		
 
 
 	}
 
 	.table-rightcolumn:hover{
-			background-color: #cccccc;
-	}
+		background: rgb(47,47,47);
+		background: linear-gradient(0deg, rgba(150, 150, 150, 0.642) 0%, rgba(255,255,255,1) 54%, rgba(255,255,255,1) 100%);
+
+}
 
 
 	
@@ -316,15 +302,16 @@ button[disabled] {
 .nav {
   height: 60px;
   width: 100%;
-  background-color: #ffffff;
+  background: rgb(47,47,47);
+  background: linear-gradient(0deg, rgba(202, 202, 202, 0.642) 0%, rgba(255,255,255,1) 54%, rgba(255,255,255,1) 100%);
     position:relative;
-
 
 
 }
 
 .nav > .nav-header {
   display: inline;
+
 }
 
 .nav > .nav-header > .nav-title {
