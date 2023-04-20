@@ -14,9 +14,9 @@ A ideia foi dada, como já disse, pelo Aécio Dambrowski, pois ele acreditou ser
 - [AutoCAD Civil 2018 3D](https://www.autodesk.com.br/products/autocad/overview) - Principal Software utilizado pelos profissionais da empresa. É dele que saem os arquivos originais, os .shp e .dbf utilizados para gerar os .geoJSON. 
 - [Google MyMaps](https://www.google.com/maps/d/u/0/) - Host dos Mapas do Site
 - [LeafletJS](https://github.com/Leaflet) - Leaflet é uma biblioteca JavaScript de código aberto usada para criar aplicativos de mapeamento da web.
-- [PHP] - Utilizado para lidar com os formulários.
-- [MariaDB] - Utilizado para base de dados.
-- [jQuery] - Utilizado para chamar os arquivos.
+- PHP - Utilizado para lidar com os formulários.
+- MariaDB - Utilizado para base de dados.
+- jQuery - Utilizado para chamar os arquivos.
 
 
 *[DEMO](https://imoveisgeo.com.br)* - Faça login com o código "1234". O link para os Documentos no Drive não funciona, pois a base de dados ainda não foi upada. Por conta disso, o mapa também não, mas deveria estar onde fica aquele retângulo maior. Em breve farei deploy de uma demo completa.
@@ -45,9 +45,9 @@ The idea was given, as I said, by Aécio Dambrowski, as he believed it to be an 
 - [AutoCAD Civil 2018 3D](https://www.autodesk.com.br/products/autocad/overview) - Main software used by company professionals. This is where the original files come from, the .shp and .dbf used to generate the .geoJSON.
 - [LeafletJS](https://github.com/Leaflet) - Leaflet is an open source JavaScript library used to build web mapping applications.
 - [Google MyMaps](https://www.google.com/maps/d/u/0/) - WebApp Maps Host
-- [PHP] - Used to handle the forms.
-- [MariaDB] - Used as database.
-- [jQuery] - Used to call the files.
+- PHP - Used to handle the forms.
+- MariaDB - Used as database.
+- jQuery - Used to call the files.
 
 
 *[DEMO](https://imoveisgeo.com.br)* - Log in with the code "1234". The link to "Documentos no Drive" does not work, as the database has not yet been uploaded. Because of that, neither does the map, but it should be where that larger rectangle is. Soon I will deploy a complete demo.
