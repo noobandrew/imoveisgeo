@@ -12,17 +12,19 @@ A ideia foi dada, como já disse, pelo Aécio Dambrowski, pois ele acreditou ser
 
 
 - [AutoCAD Civil 2018 3D](https://www.autodesk.com.br/products/autocad/overview) - Principal Software utilizado pelos profissionais da empresa. É dele que saem os arquivos originais, os .shp e .dbf utilizados para gerar os .geoJSON. 
+- [Google MyMaps](https://www.google.com/maps/d/u/0/) - Host dos Mapas do Site
 - [LeafletJS](https://github.com/Leaflet) - Leaflet é uma biblioteca JavaScript de código aberto usada para criar aplicativos de mapeamento da web.
-- [Awesome GeoJSON](https://github.com/tmcw/awesome-geojson) - Li muito os códigos desse repositório para entender os arquivos GeoJSON.
-- [Leaflet GeoJSON Selector](https://github.com/stefanocudini/leaflet-geojson-selector) - Esse repositório foi a principal inspiração para conseguir realizar de forma coerente o que imaginei.
-- [PHP] - Utilizado para lidar com os formulários.
-- [jQuery] - Utilizado para chamar os arquivos.
+- PHP - Utilizado para lidar com os formulários.
+- MariaDB - Utilizado para base de dados.
+- jQuery - Utilizado para chamar os arquivos.
 
-Fora isso, muita pesquisa, muita dor de cabeça, muito StackOverflow, muitos vídeos de Youtube com 20 visualizações. 
 
-*[DEMO](https://imoveisgeo.com.br)* - Faça login com o código "exemplo". O link para o SIGEF não funciona, pois depende de um código verdadeiro dado por um cliente de verdade. 
+*[DEMO](https://imoveisgeo.com.br)* - Faça login com o código "1234". O link para os Documentos no Drive não funciona, pois a base de dados ainda não foi upada. Por conta disso, o mapa também não, mas deveria estar onde fica aquele retângulo maior. Em breve farei deploy de uma demo completa.
 
 Sinta-se livre para abrir o app em seu celular. Eu tornei o leaflet dentro dele responsivo. Inclusive, um .apk com webview será publicado em breve.
+
+
+Essa é a terceira versão do aplicativo, outras duas foram descontinuadas para que o app ficasse mais alinhado com a necessidade da empresa.
 
 
 _______________________________________
@@ -42,13 +44,15 @@ The idea was given, as I said, by Aécio Dambrowski, as he believed it to be an 
 
 - [AutoCAD Civil 2018 3D](https://www.autodesk.com.br/products/autocad/overview) - Main software used by company professionals. This is where the original files come from, the .shp and .dbf used to generate the .geoJSON.
 - [LeafletJS](https://github.com/Leaflet) - Leaflet is an open source JavaScript library used to build web mapping applications.
-- [Awesome GeoJSON](https://github.com/tmcw/awesome-geojson) - I read a lot of code in this repository to understand GeoJSON files.
-- [GeoJSON Selector Leaflet](https://github.com/stefanocudini/leaflet-geojson-selector) - This repository was the main inspiration to achieve coherently what I imagined.
-- [PHP] - Used to handle the forms.
-- [jQuery] - Used to call the files.
+- [Google MyMaps](https://www.google.com/maps/d/u/0/) - WebApp Maps Host
+- PHP - Used to handle the forms.
+- MariaDB - Used as database.
+- jQuery - Used to call the files.
 
-Other than that, a lot of research, a lot of headache, a lot of StackOverflow, a lot of Youtube videos with 20 views.
 
-*[DEMO](https://imoveisgeo.com.br)* - Login with the code "exemplo". The link to SIGEF does not work as it relies on a real code given by a real customer.
+*[DEMO](https://imoveisgeo.com.br)* - Log in with the code "1234". The link to "Documentos no Drive" does not work, as the database has not yet been uploaded. Because of that, neither does the map, but it should be where that larger rectangle is. Soon I will deploy a complete demo.
 
-Feel free to open the app on your phone. I made the leaflet inside it responsive. Furthermore, an .apk with webview will be published soon.
+Feel free to open the app on your phone. I made the leaflet inside it responsive. Even an .apk with webview will be published soon.
+
+
+This is the third version of the app, two others have been discontinued so that the app is more in line with the company's needs.
