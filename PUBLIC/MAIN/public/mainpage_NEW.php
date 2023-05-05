@@ -1,4 +1,9 @@
 <?php
+header('Content-type: text/html; charset=ISO-8859-1');
+
+
+
+
 
 session_start();
 include_once('conexao.php');
@@ -24,7 +29,10 @@ if((!isset ($_SESSION['codigo']) == true))
 <!DOCTYPE html> 
 <head> 
 <title>| PAINEL |</title>
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
@@ -119,12 +127,12 @@ if((!isset ($_SESSION['codigo']) == true))
 		echo "<div"." class="."\"". "table-responsive" . "\"" .">";
 		echo "<table class="."\"". "greyGridTable" . "\"" .">";
 		echo "<tbody>";
-		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">"."<strong>Denomina√ß√£o"."</strong"."</td>". "<td class ="."\"". "table-rightcolumn" . "\"" ."><h4>".$user_data['nome_area']."</h4></tr>";
-		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong>√Årea</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">".$user_data['areaha']."ha"."</td>"."</tr>";
-		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong>C√≥digo Parcela</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">".$user_data['parcela_co']."</td>"."</tr>";
-		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong> C√≥digo Im√≥vel (SNCR/INCRA)</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">".$user_data['codigo_imo']."</td>"."</tr>";
+		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">"."<strong>DenominaÁ„o"."</strong"."</td>". "<td class ="."\"". "table-rightcolumn" . "\"" ."><h4>".$user_data['nome_area']."</h4></tr>";
+		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong>¡rea</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">".$user_data['areaha']."ha"."</td>"."</tr>";
+		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong>CÛdigo Parcela</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">".$user_data['parcela_co']."</td>"."</tr>";
+		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong> CÛdigo ImÛvel (SNCR/INCRA)</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">".$user_data['codigo_imo']."</td>"."</tr>";
 		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong> Status</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">".$user_data['status']."</td>"."</tr>";
-		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong> Munic√≠pio</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">".$user_data['muni']."</td>"."</tr>";
+		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong> MunicÌpio</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">".$user_data['muni']."</td>"."</tr>";
 		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">". "<strong> Projeto</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">".$user_data['projeto']."</td>"."</tr>";
 		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">"."<strong>DOCUMENTOS NO DRIVE</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">"."<a href="."\"".$user_data['documentos']."\">"."Clique aqui"."</a></td>";
 		echo "<tr>"."<td class ="."\"". "backgroundtable" . "\"" .">"."<strong>"."LINK SIGEF"."</strong>"."</td>"."<td class ="."\"". "table-rightcolumn" . "\"" .">"."<a href="."\""."https://sigef.incra.gov.br/geo/parcela/detalhe/".$user_data['parcela_co']."\">"."Clique aqui"."</a></td>"."</tr>";
@@ -149,7 +157,7 @@ if((!isset ($_SESSION['codigo']) == true))
 <script src="//unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
 
 <script>
-//script para a anima√ß√£o da tabela
+//script para a animaÁ„o da tabela
 
 
 //=========================================================

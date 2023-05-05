@@ -9,23 +9,23 @@ session_start();
 
 //    print_r($_REQUEST);
 
-    if(!empty($_POST['codigo']))
+    if(!empty($_POST['admcode']))
     {
-        // foi enviado o formulÃ¡rio
+        // foi enviado o formulário
         include_once('conexao.php');
 
-        $codigo = $_POST['codigo'];
+        $codigo = $_POST['admcode'];
         
 
-        $sql = "SELECT * FROM `usuarios` WHERE pro1code = '$codigo' OR pro2code = '$codigo' OR pro3code = '$codigo' OR pro4code = '$codigo' OR pro5code = '$codigo'";
+        $sql = "SELECT * FROM `usuarios` WHERE admcode = '$codigo'";
         $result = $conexao->query($sql);
 
         if(mysqli_num_rows($result) < 1) 
         {
-            unset($_SESSION['codigo']);
+            unset($_SESSION['admcode']);
             header('Location: index.php');
         } else {
-            $_SESSION['codigo'] = $codigo;
+            $_SESSION['admcode'] = $codigo;
             header('Location: mainpage_NEW.php');        
         }
 
@@ -33,7 +33,7 @@ session_start();
         } else {
 
 
-        // nÃ£o foi enviado o formulÃ¡rio
+        // não foi enviado o formulário
         header('Location: index.php');
     
     

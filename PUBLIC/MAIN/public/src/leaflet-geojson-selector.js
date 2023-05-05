@@ -1,4 +1,4 @@
-// javascript do seletor de mapas do MAINPAGE.PHP
+// javascript do seletor de mapas do CUSTOM-ITEM.HTML
 
 
 /*
@@ -34,7 +34,7 @@ L.Control.GeoJSONSelector = L.Control.extend({
 		position: 'topleft',			//position of panel list
 		
 		listLabel: 'properties.nome_area',	//GeoJSON property to generate items list
-		listSortBy: 'properties.BC5PROPRIE', //GeoJSON property to sort items list, default listLabel
+		listSortBy: 'properties.BC5PROPRIE',				//GeoJSON property to sort items list, default listLabel
 		listItemBuild: null,			//function list item builder
 		
 		activeListFromLayer: true,		//highlight of list item on layer hover
